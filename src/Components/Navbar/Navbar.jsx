@@ -122,7 +122,7 @@ const Navbar = () => {
                 <Flex flexDirection={'column'} justifyContent={'center'} px={8} py={5} >
                   <Link to='/login'>Sign In</Link>
                   <Link to='/registration'>Register</Link>
-                  <Link to='/'>CheckOut</Link>
+                  <Link to='/checkout'>CheckOut</Link>
                 </Flex>
               </MenuList>
             </Menu>
