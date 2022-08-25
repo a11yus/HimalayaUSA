@@ -10,6 +10,7 @@ import {
   MenuList,
   MenuItem,
 } from '@chakra-ui/react'
+import {BsHandbag} from 'react-icons/bs'
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -128,7 +129,7 @@ const Navbar = () => {
             </Menu>
             <Menu>
               <MenuButton title='Cart' >
-                <i class="fa-solid fa-bag-shopping"></i>
+               <BsHandbag />
               </MenuButton>
               <MenuList>
                 <Box style={{ height: "300px", width: "400px" }}>
