@@ -3,7 +3,7 @@ import style from "./InformationStyle.module.css"
 import { useState } from 'react'
 // import { Navigate, useNavigate } from 'react-router-dom'
 // import Cart from "./Cart"
-// import { Link } from 'react-router-dom'
+ import { Link } from 'react-router-dom'
 
 export const InformationPage = () => {
     // const navigate = useNavigate()
@@ -167,7 +167,7 @@ export const InformationPage = () => {
                                 Return to Cart
                             </div>
                             <div >
-                              <button type='submit' className={style.btn}>Continue to shipping</button>
+                              <button type='submit' className={style.btn}><Link to="/shipping">Continue to shipping</Link></button>
                             </div>
                         </div>
                        </form>

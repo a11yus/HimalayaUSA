@@ -2,6 +2,7 @@ import React from "react";
 import style from "./ShippingStyle.module.css"
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ShippingPage = () => {
   return <div className={style.ShippingContainer}>
@@ -52,7 +53,7 @@ const ShippingPage = () => {
 
       <div className={style.ReturnInfoDiv}>
         <div><span style={{marginTop:"3.5px"}}>< MdOutlineArrowBackIosNew /></span><span >Return to Information</span></div>
-        <div><button className={style.Continuebtn}>Continue to Payment</button></div>
+        <div><button className={style.Continuebtn}><Link to="/payment">Continue to Payment</Link></button></div>
 
       </div>
 

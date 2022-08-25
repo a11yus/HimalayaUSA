@@ -1,17 +1,13 @@
+import { Box } from "@chakra-ui/react";
+import Layout from "./Pages/Layout";
 
-import './App.css';
-import { InformationPage } from './Pages/InformationPage';
-import PaymentPage from './Pages/PaymentPage';
-
-import ShippingPage from './Pages/ShippingPage';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-    <ShippingPage />
-    {/* <InformationPage /> */}
-    {/* <PaymentPage /> */}
-    </div>
+    <Box className="App">
+      <Layout />
+    </Box>
   );
 }
 
