@@ -3,6 +3,7 @@ import style from "./InformationStyle.module.css";
 import { useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md"; // import { Navigate, useNavigate } from 'react-router-dom'
 // import Cart from "./Cart"
+
 import { Link } from "react-router-dom";
 import Gpay from "../image/GpayLogo.PNG"
 import amazonPay from "../image/amzonPayLogo.PNG";
@@ -488,67 +489,3 @@ export const InformationPage = () => {
   );
 };
 
-
-
-// Alabama
-// Alaska
-//  American Samoa
-//    Arizona
-//    Arkansas
-//    California
-//   Colorado
-//  Connecticut
-//   Delaware
-//   Florida
-//   Georgia
-//   Guam
-//  Hawaii
-//   Idaho
-//    Illinois
-//  Indiana
-//   Iowa
-//  Kansas
-//    Kentucky
-//   Louisiana
-//  Maine
-//    Marshall Islands
-//  Maryland
-//    Massachusetts
-//   Michigan
-//    Micronesia
-//   Minnesota
-//     Mississippi
-//   Missouri
-// Montana
-//   Nebraska
-//    Nevada
-//   New Hampshire
-//   New Jersey
-//    New Mexico
-//     New York
-//   North Carolina
-//     North Dakota
-//  Northern Mariana Islands
-//  Ohio
-//   Oklahoma
-//   Oregon
-//  Palau
-//  Pennsylvania
-//    Puerto Rico
-//    Rhode Island
-//  South Carolina
-// South Dakota
-//    Tennessee
-//   Texas
-//    U.S. Virgin Islands
-//   Utah
-//  Vermont
-//     Virginia
-//     Washington
-//     Washington DC
-//  West Virginia
-//     Wisconsin
-// Wyoming
-//  Armed Forces Americas
-//  Armed Forces Europe
-//   Armed Forces Pacific
