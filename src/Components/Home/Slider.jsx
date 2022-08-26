@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import styles from "./DisplaySlider.module.css"
 import { BsHandbag} from 'react-icons/bs';
 
