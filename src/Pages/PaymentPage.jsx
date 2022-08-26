@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Style from "./PaymentPage.module.css";
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
@@ -7,26 +7,13 @@ import { MdOutlineArrowBackIosNew } from "react-icons/md";
 //**********************Icons and Chakra Links********************* */
 import { Radio } from "@chakra-ui/react";
 import { VscCreditCard } from "react-icons/vsc";
-import { IoIosArrowBack } from "react-icons/io";
-import { Box, Collapse, Button, useDisclosure } from "@chakra-ui/react";
-// import Cart from './Cart';
+import { Box, Collapse, useDisclosure } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import OrderSummery from "./OrderSummery";
+import gif from "../image/dotsLoading.gif";
+import CheckoutPayment from "./CheckoutPayment";
 
 
-const CartData=[{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:1
-},
-{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:2
-}]
 
 const PaymentPage = () => {
   // const navigate = useNavigate()
@@ -36,16 +23,20 @@ const PaymentPage = () => {
   const { isOpen: isOpen3, onToggle: onToggle3 } = useDisclosure();
   const { isOpen: isOpen4, onToggle: onToggle4 } = useDisclosure();
 
-  const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/shipping")
-      .then((r) => r.json())
-      .then((r) => {
-        console.log(r[r.length - 1]);
-        setItems(r[r.length - 1]);
-      });
-  }, []);
+  const [payNow, setpayNow] = useState(false);
+  const navigate = useNavigate();
+  const [info,setInfo]=useState(JSON.parse(localStorage.getItem("UserInfo")));
+
+  if (payNow) {
+    setTimeout(() => {
+      setpayNow(false);
+
+      navigate("/billing");
+    }, 3000);
+  }
+
+
   return (
     //********************************Extreme Div Starts***************** */
     <div className={Style.PaymentContainer}>
@@ -53,13 +44,14 @@ const PaymentPage = () => {
         {/* **********Payment Left Div Start ******************* */}
         <div className={Style.EndLeft}>
           <div className={Style.PaymentLeft}>
-           <Link to="/">
-           <img
-              className={Style.PaymentTitle}
-              src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3890"
-              alt="images"
-            /></Link>
-            
+            <Link to="/">
+              <img
+                className={Style.PaymentTitle}
+                src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3890"
+                alt="images"
+              />
+            </Link>
+
             <ul className={Style.afterImg} style={{ listStyle: "none" }}>
               <div>Cart</div>
               <li>
@@ -82,18 +74,21 @@ const PaymentPage = () => {
                 <Link to="/payment">Payment</Link>
               </div>
             </ul>
-            <div style={{marginTop:"-5px"}}>
+            <div style={{ marginTop: "-5px" }}>
               <div className={Style.PaymentContact}>
                 <div>
                   <p className={Style.Div1title}>Contact</p>
                 </div>
                 <div>
                   <p className={Style.PaymentPara}>
-                    {items.email ? items.email : "Fill the details"}
+                    {info.email ? info.email : "Fill the details"}
+                
                   </p>
                 </div>
                 <div>
-                  <p className={Style.change}>Change</p>
+                  <p className={Style.change}>
+                    <Link to="/checkout">Change</Link>
+                  </p>
                 </div>
               </div>
               <div className={Style.PaymentShipto}>
@@ -102,11 +97,14 @@ const PaymentPage = () => {
                 </div>
                 <div>
                   <p className={Style.PaymentPara}>
-                    {items.address ? items.address : "Fill the details"}
+                    {info.address ? info.address : "Fill the details"}
+                  
                   </p>
                 </div>
                 <div>
-                  <p className={Style.change}>Change</p>
+                  <p className={Style.change}>
+                    <Link to="/checkout">Change</Link>
+                  </p>
                 </div>
               </div>
               <div className={Style.PaymentMethod}>
@@ -118,7 +116,7 @@ const PaymentPage = () => {
                 </div>
                 <div>
                   <p className={Style.change} style={{ visibility: "hidden" }}>
-                    Change
+                    <Link to="/checkout">Change</Link>
                   </p>
                 </div>
               </div>
@@ -174,15 +172,51 @@ const PaymentPage = () => {
                       bg="#fafafa"
                       width="100%"
                       marginTop="3px"
+                      fontSize="14px"
                     >
-                      <VscCreditCard className={Style.PaymentHiddenDiv} />
+                      {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
+                      <div className={Style.addrs}>Credit Card Details</div>
+
                       <div>
-                        <p className={Style.hiddenpara}>
-                          After clicking “Complete order”, you will be
-                          redirected to Credit Card / Debit Card / Net Banking /
-                          UPI to complete your purchase securely.
-                        </p>
+                        <input
+                          type="number"
+                          placeholder="Card Number"
+                          required
+                          className={Style.twoInp}
+                          maxlength="19"
+                        />
                       </div>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Name on Card"
+                          required
+                          className={Style.twoInp}
+                          name="address"
+                        />
+                      </div>
+
+                      <div className={Style.naminp}>
+                        <div>
+                          <input
+                            required
+                            type="month"
+                            placeholder="Expairy date(MM/YY)"
+                            className={Style.firstNam}
+                          />
+                        </div>
+                        <div>
+                          <input
+                            required
+                            type="password"
+                            placeholder="Security code"
+                            className={Style.LastNam}
+                            maxLength="4"
+                          />
+                        </div>
+                      </div>
+
+                      {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
                     </Box>
                   </Collapse>
                 </div>
@@ -197,11 +231,13 @@ const PaymentPage = () => {
                       position="absolute"
                     ></Radio>
 
-                    <img
-                      className={Style.paytmImg}
-                      src="https://cdn.shopify.com/shopifycloud/shopify/assets/checkout/offsite-gateway-logos/amazonpay@2x-6ed2b0ce5c20dfd0dc87f9363f0a57ecf9bb4e4fde26df79b3da96e6480cebd4.png"
-                      alt="images"
-                    />
+                    <a  href="https://pay.amazon.com/signin">
+                      <img
+                        className={Style.paytmImg}
+                        src="https://cdn.shopify.com/shopifycloud/shopify/assets/checkout/offsite-gateway-logos/amazonpay@2x-6ed2b0ce5c20dfd0dc87f9363f0a57ecf9bb4e4fde26df79b3da96e6480cebd4.png"
+                        alt="images"
+                      />
+                    </a>
                   </div>
 
                   <div>
@@ -217,10 +253,8 @@ const PaymentPage = () => {
                       >
                         <VscCreditCard className={Style.PaymentHiddenDiv} />
                         <div>
-                          <p className={Style.hiddenpara}>
-                            After clicking “Complete order”, you will be
-                            redirected to Credit Card / Debit Card / Net Banking
-                            / UPI to complete your purchase securely.
+                          <p style={{ textAlign: "center" }}>
+                            You will be asked to login with Amazon.
                           </p>
                         </div>
                       </Box>
@@ -283,8 +317,13 @@ const PaymentPage = () => {
                         <div className={Style.addrs}>Shipping address</div>
 
                         <div style={{ marginTop: "20px" }}>
-                          <select className={Style.slct}>
-                            <option value="">India</option>
+                          <select
+                            className={Style.slct}
+                            style={{ fontSize: "14px" }}
+                          >
+                            <option style={{ fontSize: "14px" }} value="">
+                              United States
+                            </option>
                           </select>
                         </div>
 
@@ -294,6 +333,8 @@ const PaymentPage = () => {
                               type="name"
                               placeholder="First Name"
                               className={Style.firstNam}
+                              style={{ fontSize: "14px" }}
+                              value={info ? info.FirstName:""}
                             />
                           </div>
                           <div>
@@ -301,6 +342,8 @@ const PaymentPage = () => {
                               type="name"
                               placeholder="Last Name"
                               className={Style.LastNam}
+                              style={{ fontSize: "14px" }}
+                              value={info ? info.LastName:""}
                             />
                           </div>
                         </div>
@@ -312,6 +355,8 @@ const PaymentPage = () => {
                             required
                             className={Style.twoInp}
                             name="address"
+                            value={info ? info.address:""}
+                            style={{ fontSize: "14px" }}
                           />
                         </div>
                         <div>
@@ -320,52 +365,400 @@ const PaymentPage = () => {
                             placeholder="Apartment,suite,etc. (optional)"
                             required
                             className={Style.twoInp}
+                            style={{ fontSize: "14px" }}
+                            value={info ? info.apartment:""}
                           />
                         </div>
 
                         <div className={Style.threeInp}>
+                          <div style={{ width: "27%" }}>
+                            <input
+                              type="text"
+                              className={Style.threeOneInp}
+                              placeholder="City"
+                              style={{ fontSize: "14px" }}
+                              value={info ? info.City:""}
+                            />
+                          </div>
                           <div style={{ width: "27.5%" }}>
-                            <select className={Style.threeOneInp}>
-                              <option>State</option>
-                              <option value="AN">
-                                Andaman and Nicobar Islands
+                            <select
+                              className={Style.threeOneInp}
+                              style={{ fontSize: "14px" }}
+                            >
+                              <option disabled="">State</option>
+
+                              <option
+                                data-alternate-values='["Alabama"]'
+                                value="AL"
+                              >
+                                Alabama
                               </option>
-                              <option value="AP">Andhra Pradesh</option>
-                              <option value="AR">Arunachal Pradesh</option>
-                              <option value="AS">Assam</option>
-                              <option value="BR">Bihar</option>
-                              <option value="CH">Chandigarh</option>
-                              <option value="CT">Chhattisgarh</option>
-                              <option value="DN">Dadra and Nagar Haveli</option>
-                              <option value="DD">Daman and Diu</option>
-                              <option value="DL">Delhi</option>
-                              <option value="GA">Goa</option>
-                              <option value="GJ">Gujarat</option>
-                              <option value="HR">Haryana</option>
-                              <option value="HP">Himachal Pradesh</option>
-                              <option value="JK">Jammu and Kashmir</option>
-                              <option value="JH">Jharkhand</option>
-                              <option value="KA">Karnataka</option>
-                              <option value="KL">Kerala</option>
-                              <option value="LA">Ladakh</option>
-                              <option value="LD">Lakshadweep</option>
-                              <option value="MP">Madhya Pradesh</option>
-                              <option value="MH">Maharashtra</option>
-                              <option value="MN">Manipur</option>
-                              <option value="ML">Meghalaya</option>
-                              <option value="MZ">Mizoram</option>
-                              <option value="NL">Nagaland</option>
-                              <option value="OR">Odisha</option>
-                              <option value="PY">Puducherry</option>
-                              <option value="PB">Punjab</option>
-                              <option value="RJ">Rajasthan</option>
-                              <option value="SK">Sikkim</option>
-                              <option value="TN">Tamil Nadu</option>
-                              <option value="TG">Telangana</option>
-                              <option value="TR">Tripura</option>
-                              <option value="UP">Uttar Pradesh</option>
-                              <option value="UT">Uttarakhand</option>
-                              <option value="WB">West Bengal</option>
+                              <option
+                                data-alternate-values='["Alaska"]'
+                                value="AK"
+                              >
+                                Alaska
+                              </option>
+                              <option
+                                data-alternate-values='["American Samoa"]'
+                                value="AS"
+                              >
+                                American Samoa
+                              </option>
+                              <option
+                                data-alternate-values='["Arizona"]'
+                                value="AZ"
+                              >
+                                Arizona
+                              </option>
+                              <option
+                                data-alternate-values='["Arkansas"]'
+                                value="AR"
+                              >
+                                Arkansas
+                              </option>
+                              <option
+                                data-alternate-values='["California"]'
+                                value="CA"
+                              >
+                                California
+                              </option>
+                              <option
+                                data-alternate-values='["Colorado"]'
+                                value="CO"
+                              >
+                                Colorado
+                              </option>
+                              <option
+                                data-alternate-values='["Connecticut"]'
+                                value="CT"
+                              >
+                                Connecticut
+                              </option>
+                              <option
+                                data-alternate-values='["Delaware"]'
+                                value="DE"
+                              >
+                                Delaware
+                              </option>
+                              <option
+                                data-alternate-values='["Florida"]'
+                                value="FL"
+                              >
+                                Florida
+                              </option>
+                              <option
+                                data-alternate-values='["Georgia"]'
+                                value="GA"
+                              >
+                                Georgia
+                              </option>
+                              <option
+                                data-alternate-values='["Guam"]'
+                                value="GU"
+                              >
+                                Guam
+                              </option>
+                              <option
+                                data-alternate-values='["Hawaii"]'
+                                value="HI"
+                              >
+                                Hawaii
+                              </option>
+                              <option
+                                data-alternate-values='["Idaho"]'
+                                value="ID"
+                              >
+                                Idaho
+                              </option>
+                              <option
+                                data-alternate-values='["Illinois"]'
+                                value="IL"
+                              >
+                                Illinois
+                              </option>
+                              <option
+                                data-alternate-values='["Indiana"]'
+                                value="IN"
+                              >
+                                Indiana
+                              </option>
+                              <option
+                                data-alternate-values='["Iowa"]'
+                                value="IA"
+                              >
+                                Iowa
+                              </option>
+                              <option
+                                data-alternate-values='["Kansas"]'
+                                value="KS"
+                              >
+                                Kansas
+                              </option>
+                              <option
+                                data-alternate-values='["Kentucky"]'
+                                value="KY"
+                              >
+                                Kentucky
+                              </option>
+                              <option
+                                data-alternate-values='["Louisiana"]'
+                                value="LA"
+                              >
+                                Louisiana
+                              </option>
+                              <option
+                                data-alternate-values='["Maine"]'
+                                value="ME"
+                              >
+                                Maine
+                              </option>
+                              <option
+                                data-alternate-values='["Marshall Islands"]'
+                                value="MH"
+                              >
+                                Marshall Islands
+                              </option>
+                              <option
+                                data-alternate-values='["Maryland"]'
+                                value="MD"
+                              >
+                                Maryland
+                              </option>
+                              <option
+                                data-alternate-values='["Massachusetts"]'
+                                value="MA"
+                              >
+                                Massachusetts
+                              </option>
+                              <option
+                                data-alternate-values='["Michigan"]'
+                                value="MI"
+                              >
+                                Michigan
+                              </option>
+                              <option
+                                data-alternate-values='["Federated States of Micronesia"]'
+                                value="FM"
+                              >
+                                Micronesia
+                              </option>
+                              <option
+                                data-alternate-values='["Minnesota"]'
+                                value="MN"
+                              >
+                                Minnesota
+                              </option>
+                              <option
+                                data-alternate-values='["Mississippi"]'
+                                value="MS"
+                              >
+                                Mississippi
+                              </option>
+                              <option
+                                data-alternate-values='["Missouri"]'
+                                value="MO"
+                              >
+                                Missouri
+                              </option>
+                              <option
+                                data-alternate-values='["Montana"]'
+                                value="MT"
+                              >
+                                Montana
+                              </option>
+                              <option
+                                data-alternate-values='["Nebraska"]'
+                                value="NE"
+                              >
+                                Nebraska
+                              </option>
+                              <option
+                                data-alternate-values='["Nevada"]'
+                                value="NV"
+                              >
+                                Nevada
+                              </option>
+                              <option
+                                data-alternate-values='["New Hampshire"]'
+                                value="NH"
+                              >
+                                New Hampshire
+                              </option>
+                              <option
+                                data-alternate-values='["New Jersey"]'
+                                value="NJ"
+                              >
+                                New Jersey
+                              </option>
+                              <option
+                                data-alternate-values='["New Mexico"]'
+                                value="NM"
+                              >
+                                New Mexico
+                              </option>
+                              <option
+                                data-alternate-values='["New York"]'
+                                value="NY"
+                              >
+                                New York
+                              </option>
+                              <option
+                                data-alternate-values='["North Carolina"]'
+                                value="NC"
+                              >
+                                North Carolina
+                              </option>
+                              <option
+                                data-alternate-values='["North Dakota"]'
+                                value="ND"
+                              >
+                                North Dakota
+                              </option>
+                              <option
+                                data-alternate-values='["Northern Mariana Islands"]'
+                                value="MP"
+                              >
+                                Northern Mariana Islands
+                              </option>
+                              <option
+                                data-alternate-values='["Ohio"]'
+                                value="OH"
+                              >
+                                Ohio
+                              </option>
+                              <option
+                                data-alternate-values='["Oklahoma"]'
+                                value="OK"
+                              >
+                                Oklahoma
+                              </option>
+                              <option
+                                data-alternate-values='["Oregon"]'
+                                value="OR"
+                              >
+                                Oregon
+                              </option>
+                              <option
+                                data-alternate-values='["Palau"]'
+                                value="PW"
+                              >
+                                Palau
+                              </option>
+                              <option
+                                data-alternate-values='["Pennsylvania"]'
+                                value="PA"
+                              >
+                                Pennsylvania
+                              </option>
+                              <option
+                                data-alternate-values='["Puerto Rico"]'
+                                value="PR"
+                              >
+                                Puerto Rico
+                              </option>
+                              <option
+                                data-alternate-values='["Rhode Island"]'
+                                value="RI"
+                              >
+                                Rhode Island
+                              </option>
+                              <option
+                                data-alternate-values='["South Carolina"]'
+                                value="SC"
+                              >
+                                South Carolina
+                              </option>
+                              <option
+                                data-alternate-values='["South Dakota"]'
+                                value="SD"
+                              >
+                                South Dakota
+                              </option>
+                              <option
+                                data-alternate-values='["Tennessee"]'
+                                value="TN"
+                              >
+                                Tennessee
+                              </option>
+                              <option
+                                data-alternate-values='["Texas"]'
+                                value="TX"
+                              >
+                                Texas
+                              </option>
+                              <option
+                                data-alternate-values='["Virgin Islands"]'
+                                value="VI"
+                              >
+                                U.S. Virgin Islands
+                              </option>
+                              <option
+                                data-alternate-values='["Utah"]'
+                                value="UT"
+                              >
+                                Utah
+                              </option>
+                              <option
+                                data-alternate-values='["Vermont"]'
+                                value="VT"
+                              >
+                                Vermont
+                              </option>
+                              <option
+                                data-alternate-values='["Virginia"]'
+                                value="VA"
+                              >
+                                Virginia
+                              </option>
+                              <option
+                                data-alternate-values='["Washington"]'
+                                value="WA"
+                              >
+                                Washington
+                              </option>
+                              <option
+                                data-alternate-values='["District of Columbia"]'
+                                value="DC"
+                              >
+                                Washington DC
+                              </option>
+                              <option
+                                data-alternate-values='["West Virginia"]'
+                                value="WV"
+                              >
+                                West Virginia
+                              </option>
+                              <option
+                                data-alternate-values='["Wisconsin"]'
+                                value="WI"
+                              >
+                                Wisconsin
+                              </option>
+                              <option
+                                data-alternate-values='["Wyoming"]'
+                                value="WY"
+                              >
+                                Wyoming
+                              </option>
+                              <option
+                                data-alternate-values='["Armed Forces Americas"]'
+                                value="AA"
+                              >
+                                Armed Forces Americas
+                              </option>
+                              <option
+                                data-alternate-values='["Armed Forces Europe"]'
+                                value="AE"
+                              >
+                                Armed Forces Europe
+                              </option>
+                              <option
+                                data-alternate-values='["Armed Forces Pacific"]'
+                                value="AP"
+                              >
+                                Armed Forces Pacific
+                              </option>
                             </select>
                           </div>
                           <div style={{ width: "28.5%" }}>
@@ -373,6 +766,8 @@ const PaymentPage = () => {
                               type="text"
                               className={Style.threeOneInp}
                               placeholder="PIN Code"
+                              style={{ fontSize: "14px" }}
+                              value={info ? info.Pincode:""}
                             />
                           </div>
                         </div>
@@ -383,6 +778,8 @@ const PaymentPage = () => {
                             placeholder="Phone"
                             required
                             className={Style.twoInp}
+                            style={{ fontSize: "14px" }}
+                            value={info ? info.Phone:""}
                           />
                         </div>
                         {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
@@ -394,28 +791,36 @@ const PaymentPage = () => {
 
               {/* ****************************************** */}
             </div>
-            {/* <div className={Style.PaymentEndDiv}>
-              <div>
-                {" "}
-                <p className={Style.paymentbottmDiv}>
-                  <IoIosArrowBack className={Style.bcktocarticon} />
-           
-                  Return to cart
-                </p>
-              </div>
-       
-              <div>
-                {" "}
-                <Button className={Style.Continuebtn}>Complete order</Button>
-              </div>
-            </div> */}
-            <div className={Style.paymentbottmDiv}>
-        <div style={{display:"flex"}}><span style={{marginTop:"3.5px"}}>< MdOutlineArrowBackIosNew /></span><span >Return to Information</span></div>
-        <div><button className={Style.Continuebtn}><Link to="/payment">Pay Now</Link></button></div>
 
-      </div>
+            <div className={Style.paymentbottmDiv}>
+              <div style={{ display: "flex" }}>
+                <span style={{ marginTop: "3.5px" }}>
+                  <MdOutlineArrowBackIosNew />
+                </span>
+                <span>
+                  <Link to="/checkout">Return to Information</Link>
+                </span>
+              </div>
+              <div>
+                <button
+                  onClick={() => {
+                    setpayNow(true);
+                  }}
+                  className={Style.Continuebtn}
+                >
+                  <Link to="/payment">
+                    {payNow ? (
+                      <img style={{ height: "40px" }} src={gif} alt="images"/>
+                    ) : (
+                      "Pay Now"
+                    )}
+                  </Link>
+                </button>
+              </div>
+            </div>
+
             <hr className={Style.paymentHor}></hr>
-            <span className={Style.bottomFoot} >
+            <span className={Style.bottomFoot}>
               <p>Refund Policy</p>
               <p>Shipping policy</p>
               <p>Privacy policy</p>
@@ -427,12 +832,10 @@ const PaymentPage = () => {
 
         {/* **********Payment Right Div Start ******************* */}
         {/* Append data here from cart page********** */}
-        
+
         <div className={Style.EndRight}>
-          
-             <OrderSummery CartData={CartData}/>
-          
-       
+          {/* <OrderSummery CartData={CartData} /> */}
+          <CheckoutPayment/>
         </div>
         {/* **********Payment Right Div Ends ******************* */}
       </div>

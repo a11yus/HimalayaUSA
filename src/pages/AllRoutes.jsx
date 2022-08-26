@@ -9,6 +9,7 @@ import PaymentPage from './PaymentPage'
 import UserRoute from '../Components/PrivateRoute'
 import { useDispatch } from 'react-redux'
 import { auth } from '../firebase'
+import BillingPage from './BillingPage'
 
 
 const AllRoutes = () => {
@@ -21,20 +22,21 @@ const AllRoutes = () => {
       <Route path="/" element={<Mainpage />} ></Route>
       <Route path="/registration" element={<Registration />} ></Route>
       <Route path="/login" element={<Login />} ></Route>
+      <Route path="/billing" element={<BillingPage/>}></Route>
       <Route path="/checkout" element={
-        // <UserRoute>
+         <UserRoute>
           <InformationPage />
-        // </UserRoute>
+         </UserRoute>
       } ></Route>
       <Route path="/shipping" element={
-        // <UserRoute>
+         <UserRoute>
           <ShippingPage />
-        // </UserRoute> 
+         </UserRoute> 
       } ></Route>
       <Route path="/payment" element={
-        // <UserRoute>
+         <UserRoute>
           <PaymentPage />
-        // </UserRoute>
+         </UserRoute>
       }> </Route>
     </Routes>
   )

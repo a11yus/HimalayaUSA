@@ -3,23 +3,15 @@ import style from "./ShippingStyle.module.css"
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { Link } from "react-router-dom";
-import OrderSummery from "./OrderSummery";
+import CheckoutPayment from "./CheckoutPayment";
+import { useState } from "react";
 
 
-const CartData=[{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:1
-},
-{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:2
-}]
 
 const ShippingPage = () => {
+
+  const [info,setInfo]=useState(JSON.parse(localStorage.getItem("UserInfo")));
+  console.log(info)
   return <div className={style.ShippingContainer}>
     <div className={style.ShippingContainerLeft}>
  <Link to="/">      <img className={style.ShippingLogoimage} src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3890" alt="logo" /></Link>
@@ -40,14 +32,14 @@ const ShippingPage = () => {
         <div className={style.ShippingTopDiv1}>
         <div className={style.ShippingTopDiv21}>
             <div style={{color:"#68615b"}}>Contact</div>
-            <div>Add email  </div>
+            <div>{info ?info.email :"Add Email"} </div>
           </div>
           <div style={{color:"#68615b",fontSize:"13px",cursor:"pointer"}}>Change</div>
         </div>
         <div className={style.ShippingTopDiv2}>
           <div className={style.ShippingTopDiv21}>
             <div style={{color:"#68615b"}}>Ship To</div>
-            <div>Add address  </div>
+            <div>{info ? info.address:"Add address"}  </div>
           </div>
           <div style={{color:"#68615b",fontSize:"13px",cursor:"pointer"}}>Change</div>
         </div>
@@ -81,7 +73,8 @@ const ShippingPage = () => {
     
     </div>
     <div className={style.ShippingContainerRight}>
-    <OrderSummery CartData={CartData}/>
+    {/* <OrderSummery CartData={CartData}/> */}
+    <CheckoutPayment/>
     </div>
   </div>;
 };

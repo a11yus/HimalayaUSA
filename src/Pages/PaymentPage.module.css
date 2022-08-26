@@ -114,7 +114,7 @@
 .PaymentOpts > div {
   font-size: 12px;
   padding: 10px;
-
+  border: 1px solid #ff6781;
   width: 100%;
   border: 0.1px solid #cccccc;
   border-radius: 5px;
@@ -186,7 +186,7 @@
 .Continuebtn {
   font-size: 14px;
   font-weight: 200;
-  padding: 1rem 2rem;
+  padding: 1rem ;
   border-radius: 5px;
   background-color: #a3b49b;
   color: black;
@@ -266,7 +266,7 @@
   font-weight: 500;
 }
 .slct {
-  width: 92%;
+  width: 100%;
   height: 45px;
   margin-right: 54px;
   padding: 0px 5px;
@@ -278,7 +278,7 @@
   display: flex;
   width: 100%;
   margin-top: 10px;
-  gap: 50px;
+  gap: 35px;
 }
 
 .firstNam {
@@ -291,7 +291,7 @@
 }
 
 .LastNam {
-  width: 125%;
+  width: 115%;
   height: 45px;
   padding: 0px 5px;
   border-radius: 5px;
@@ -299,7 +299,7 @@
 }
 
 .twoInp {
-  width: 90%;
+  width: 100% !important;
   height: 45px;
   margin-right: 47px;
   padding: 0px 5px;
@@ -327,7 +327,7 @@
 }
 
 .threeOneInp {
-  width: 100%;
+  width: 114%;
   height: 45px;
   padding: 0px 5px;
   border-radius: 5px;
