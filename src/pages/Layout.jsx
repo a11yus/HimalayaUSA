@@ -1,7 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import Navbar from '../Components/Navbar/Navbar'
-import AllRoutes from './AllRoutes'
+import AllRoutes from './AllRoutes';
+import {Footer} from "../Components/Footer"
 
 const Layout = ({children}) => {
     return (
@@ -11,6 +12,7 @@ const Layout = ({children}) => {
            <AllRoutes />
            </Box>
             {children}  
+            <Footer/>
         </Box>
       )
 }

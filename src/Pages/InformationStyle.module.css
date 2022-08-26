@@ -1,0 +1,185 @@
+.mainBox{
+    border: 1px solid red;
+    
+    width: 85%;
+    margin: auto;
+    height: 950px;
+    display: flex;
+    margin: auto;
+    margin: 0px 123.2px;
+    padding: 0px 74.8px;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+}
+
+.addressBox{
+    width: 638px;
+    /* border: 1px solid black;   */
+}
+
+.dostImgBox{
+    width: 38%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.afterImg{
+    width: 40%;
+    /* border: 1px solid black; */
+    margin:auto;
+    height: 40px;
+    display: flex;
+    font-size: 11px;
+    gap: 20px;
+}
+
+.cont{
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: left;
+}
+
+.parabox{
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: left;
+    font-size: 14px;
+}
+
+.oneInp{
+    width: 90%;
+    height: 45px;
+    margin-right: 47px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.onechk{
+    /* border: 1px solid red; */
+    width: 100%;
+    text-align: left;
+    margin-top: 7px;
+}
+
+.onelbl{
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.addrs{
+    text-align: left;
+    /* border: 1px solid black; */
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+.slct{
+    width: 92%;
+    height: 45px;
+    margin-right: 54px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    }
+
+    .naminp{
+        /* border: 1px solid black; */
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        gap: 50px;
+    }
+    
+    .firstNam{
+        width: 110%;
+        height: 45px;
+        padding: 0px 5px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        margin-right: 30px;
+    }
+
+    .LastNam{
+        width: 125%;
+        height: 45px;
+        padding: 0px 5px;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+
+    .twoInp{
+        width: 90%;
+        height: 45px;
+        margin-right: 47px;
+        padding: 0px 5px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        margin-top: 10px; 
+    }
+
+    .threeInp{
+        width: 100%;
+        /* border: 1px solid red; */
+        display: flex;
+        margin-top: 10px;
+        gap: 20px;
+    }
+
+    .threeOneInp{
+        width: 100%;
+        height: 45px;
+        padding: 0px 5px;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+
+    .btnBox{
+        display: flex;
+        /* border: 1px solid black; */
+        width: 91.5%;
+        justify-content: space-between;
+    }
+
+    
+   .btn{
+    background-color: #50504b;
+    color: white;
+    font-weight: bold;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+   }
+
+   .return{
+    /* color:red; */
+    margin-top: 18px;
+    font-size: 12px;
+   }
+
+
+   .underline{
+    width: 91.5%;
+    border: 0.5px solid lightgray;
+    margin-top: 50px;
+   }
+    
+
+   .lastBox{
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    /* color:  red; */
+   }
+
+   .cartBox{
+    border: 1px solid green;
+    width: 462px;
+    background-color: 
+    #f4f7f3;
+    height: auto;
+   
+    overflow: auto;
+   }
+   

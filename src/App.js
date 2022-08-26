@@ -1,10 +1,11 @@
-import './App.css';
-import {Box} from '@chakra-ui/react'
-import Layout from './pages/Layout';
+import { Box } from "@chakra-ui/react";
+import Layout from "./pages/Layout";
+
+import "./App.css";
 
 function App() {
   return (
-    <Box className='App'>
+    <Box className="App">
       <Layout />
     </Box>
   );

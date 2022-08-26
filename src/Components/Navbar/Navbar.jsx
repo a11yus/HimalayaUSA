@@ -4,6 +4,8 @@ import styles from './Navbar.module.css'
 import { Link } from "react-router-dom";
 import { Search2Icon } from "@chakra-ui/icons";
 import logo from '../../image/logo.png';
+import { useSelector,useDispatch} from 'react-redux';
+import { logoutInit } from "../../Redux/Authreducer/action";
 import {
   Menu,
   MenuButton,
@@ -14,6 +16,13 @@ import {BsHandbag} from 'react-icons/bs'
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const currentUser = useSelector((store) => store.authReducer.currentUser);
+  const dispatch = useDispatch();
+  const handleAuth=()=>{
+    if(currentUser){
+      dispatch(logoutInit())
+    }
+  }
   return (
     <>
       <Box className={styles.Navcontainer}>
@@ -114,6 +123,7 @@ const Navbar = () => {
               <Text>store Locator</Text>
             </Link>
             <Spacer />
+            <Link to="/">{currentUser?currentUser.email:""}</Link>
             <Link title='Search' to="/"><Search2Icon /></Link>
             <Menu>
               <MenuButton title='My Account' >
@@ -121,9 +131,9 @@ const Navbar = () => {
               </MenuButton>
               <MenuList mt={5} fontSize="16px">
                 <Flex flexDirection={'column'} justifyContent={'center'} px={8} py={5} >
-                  <Link to='/login'>Sign In</Link>
+                  <Link to='/login'><button onClick={handleAuth}>{currentUser?"Logout":"Sign In"}</button></Link>
                   <Link to='/registration'>Register</Link>
-                  <Link to='/'>CheckOut</Link>
+                  <Link to='/checkout'>CheckOut</Link>
                 </Flex>
               </MenuList>
             </Menu>

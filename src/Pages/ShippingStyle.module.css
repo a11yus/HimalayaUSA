@@ -1,0 +1,156 @@
+
+
+
+.ShippingContainer{
+    /* border:1px solid red; */
+    /* width:1496px; */
+    height:596.4px;
+    margin: auto;
+    margin: 0px 123.2px;
+    padding: 0px 74.8px;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+ 
+}
+.ShippingLogoimage{
+    width: 180px;
+    height: 60px;
+}
+.ShippingHeaderListDiv>ul>li{
+   margin-top: auto;
+   margin-bottom: 28px;
+}
+.ShippingHeaderList{
+    list-style: none;
+    display: flex;
+    height: 18.2px;
+    font-size: 12px;
+    color: #989b8d;
+    gap:10px;
+    margin-top: 10px;
+}
+
+.ShippingHeaderList>li:nth-child(odd){
+    cursor: pointer;
+}
+
+.ShippingHeaderList>li:nth-child(even){
+   margin-top: 2px;
+}
+.ShippingHeaderList>li:hover{
+    color: 
+    #68615b;
+}
+.ShippingContainerLeft{
+   height: auto;
+    width: 638px;
+    padding: 56px 66px 0px 0px;
+   
+}
+.ShippingContainerRight{
+    border: 1px solid green;
+    width: 462px;
+    background-color: 
+    #f4f7f3;
+    height: auto;
+}
+
+.ShippingTopDiv{
+    height: 85.4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+    
+  
+}
+.ShippingTopDiv>div{
+    /* border:1px solid red; */
+    height: 50%;
+   
+}
+.ShippingTopDiv1,.ShippingTopDiv2,.ShippingBottomDiv1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+
+.ShippingTopDiv1{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.ShippingTopDiv21,.ShippingBottomDiv21{
+    display: flex;
+    flex-direction: row;
+    /* background-color: chartreuse; */
+    width: 70%;
+}
+
+.ShippingTopDiv21 :first-child{
+    padding: 0px 16px 0px 0px;
+    width: 100px;
+   
+}
+.ShippingBottomDiv21 :first-child{
+    padding: 0px 16px 0px 0px;
+    width: 100px;
+   
+}
+.ShippingBottomDiv{
+    height: 50.4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 21px;
+}
+
+.ReturnInfoDiv{
+    height: 60.4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 150px;
+    
+
+}
+.ReturnInfoDiv>div:first-child{
+    color:#989b8d;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+    margin-top: 20px;
+
+}
+
+
+.Continuebtn{
+    font-size: 14px;
+    font-Weight:200;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: 
+    #a3b49b;
+}
+.refundDiv{
+    display: flex;
+   
+}
+.refundDiv>p{
+    color:#989b8d;
+    font-size: 12px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.refundDiv>p :hover{
+    color: #68615b;
+}
+
+
+
+
+
