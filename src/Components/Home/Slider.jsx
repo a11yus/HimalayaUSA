@@ -1,6 +1,6 @@
 import React from "react";
-// import Slider from "react-slick";
-import styles from "./DisplaySlider.module.css"
+import Slider from "react-slick";
+import styles from "./Slider.module.css"
 import { BsHandbag} from 'react-icons/bs';
 
     // import "~slick-carousel/slick/slick.css"; 
