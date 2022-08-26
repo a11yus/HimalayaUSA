@@ -1,0 +1,57 @@
+ .top{
+    height: 500px; 
+    width: 100%;
+    /* border: 1px solid blue; */
+    object-fit: cover;
+    font-family: Poppins, sans-serif;
+  
+    
+   
+}
+.back{
+    background-image: url("https://cdn.shopify.com/s/files/1/0399/1728/9633/files/hero-desktop-ashwagandha_x720_78e6b5a9-d578-413f-8100-33c881ca05f7.webp?v=1660561979");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 600px;
+    width: 100%;
+  
+}
+.ash{
+   padding-top: 230px;
+   padding-left: 160px;
+    text-align:left;
+}
+.gandha{
+    font-weight: bold;
+    font-size: 46px;
+    color: #333333;
+    letter-spacing: 3px;
+    font-family: Poppins, sans-serif;
+    /* padding: 6px 20px 17px; */
+
+}
+.star{
+    font-size: 18px;
+    color: #333333;
+    padding-top: 20px;
+    /* line-height: 4px; */
+    font-family: Poppins, sans-serif;
+    word-spacing: 3px;
+
+}
+.blue{
+    background-color:#48cab2 ;
+    font-size: 13px;
+    padding: 9px 25px 4px;
+    color:#ffffff;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 190px;
+    margin-top: 18px;
+    
+}
+.blue:hover{
+    background-color: black;
+    
+}

@@ -4,12 +4,13 @@
 .ShippingContainer{
     /* border:1px solid red; */
     /* width:1496px; */
-    height:596.4px;
+
     margin: auto;
     margin: 0px 123.2px;
     padding: 0px 74.8px;
     display: flex;
     font-family: "Open Sans", sans-serif;
+    font-family: 'Poppins', sans-serif;
  
 }
 .ShippingLogoimage{
@@ -45,10 +46,11 @@
    height: auto;
     width: 638px;
     padding: 56px 66px 0px 0px;
+
    
 }
 .ShippingContainerRight{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 462px;
     background-color: 
     #f4f7f3;
@@ -113,7 +115,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     
 
 }
@@ -135,6 +137,8 @@
     border-radius: 10px;
     background-color: 
     #a3b49b;
+    color: black;
+    font-weight: 600;
 }
 .refundDiv{
     display: flex;
@@ -145,6 +149,7 @@
     font-size: 12px;
     margin-right: 20px;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 .refundDiv>p :hover{
     color: #68615b;

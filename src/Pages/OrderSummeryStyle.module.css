@@ -1,0 +1,59 @@
+.PaymentRight{
+    /* border:1px solid red; */
+    padding: 1rem;
+    padding-top: 50px;
+    
+background-color: #f4f7f3
+  }
+  .PaymentRight4{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  
+  }
+  .PaymentRight31,.PaymentRight32{
+    display: flex;
+    justify-content: space-between;
+  }
+  .PaymentRight31{
+    padding: 0.5rem;
+   
+  }
+  .PaymentRight2{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+  .PaymentRight2>button{
+    background-color: #989b8d;
+    color: black;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    height: 50px;
+    font-size: 14px;
+  
+  }
+  .PaymentRight2>input{
+    border-radius: 3px;
+    height: 100%;
+    padding: 0.5rem;
+    border:1px solid rgba(0,0,0,0.1);
+  }
+  .PaymentRight1{
+    display: flex;
+    
+    color: black;
+    padding: 0.5rem;
+  }
+  .PaymentRight1>div>img{
+    height: 80px;
+    width: 100px;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+   
+  }
+  .PaymentRight1>div>p{
+    font-size: 14px;
+    margin-left: 15px;
+  }

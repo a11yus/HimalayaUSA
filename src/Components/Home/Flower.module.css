@@ -1,0 +1,33 @@
+.unlock{ 
+    height: 300px;
+    width: 80%;
+    /* border: 1px solid red; */
+    margin-top: 80px;
+    margin-left: 160px;
+    display: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color:#ffffff ;
+    gap: 50px;
+
+}
+.flow{
+    height: 280px;
+    width: 170px;
+    object-fit: cover;
+    /* border: 1px solid green; */
+    padding-left: 40px;
+    padding-top: 40px;
+}
+.wisdom{
+    font-size: 29px;
+    margin-top: 30px;
+    /* margin-left: -160px; */
+}
+.with{
+    font-size:25px ;
+    /* margin-left: -170px; */
+    word-spacing: 3px;
+}
+.since{
+    font-size: 16px;
+}
