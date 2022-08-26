@@ -16,7 +16,6 @@ import {
 export const Footer = () => {
   return (
   
-    
         <Box p="3rem" bg="
         #eef2f0">
      <Flex justifyContent="space-between">

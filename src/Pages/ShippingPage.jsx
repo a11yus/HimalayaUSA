@@ -3,20 +3,36 @@ import style from "./ShippingStyle.module.css"
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { Link } from "react-router-dom";
+import OrderSummery from "./OrderSummery";
+
+
+const CartData=[{
+  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
+  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
+  price:"5.99",
+  id:1
+},
+{
+  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
+  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
+  price:"5.99",
+  id:2
+}]
 
 const ShippingPage = () => {
   return <div className={style.ShippingContainer}>
     <div className={style.ShippingContainerLeft}>
-      <img className={style.ShippingLogoimage} src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3890" alt="logo" />
+ <Link to="/">      <img className={style.ShippingLogoimage} src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3890" alt="logo" /></Link>
       <div className={style.ShippingHeaderListDiv}>
+              
         <ul className={style.ShippingHeaderList}>
           <li>Cart</li>
           <li><MdArrowForwardIos/></li>
-          <li>Information</li>
+          <li><Link to="/checkout">Information</Link></li>
           <li><MdArrowForwardIos/></li>
-          <li>Shipping</li>
+          <li><Link to="/shipping">Shipping</Link></li>
           <li><MdArrowForwardIos/></li>
-          <li>Payment</li>
+          <li><Link to="/payment">Payment</Link></li>
         </ul>
       </div>
 
@@ -64,7 +80,9 @@ const ShippingPage = () => {
       </div>
     
     </div>
-    <div className={style.ShippingContainerRight}> AddCart page details</div>
+    <div className={style.ShippingContainerRight}>
+    <OrderSummery CartData={CartData}/>
+    </div>
   </div>;
 };
 
