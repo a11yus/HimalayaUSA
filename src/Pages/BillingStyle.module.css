@@ -1,0 +1,109 @@
+/* .BillingContainerLeft{
+    border:2px solid red
+} */
+.BillingContainerRight{
+    /* border:2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 20px ;
+    color: black;
+    font-size: 14px;
+}
+.BillingContainer{
+    border:2px solid;
+    display: flex;
+     justify-content: space-around;
+    
+    gap:20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.BillingContainer>div{
+    width: 40%;
+}
+.successfulDiv{
+    padding: 1rem;
+    /* border:2px solid pink; */
+    width: 70%;
+    margin: auto;
+    background-color: 
+    #edf7ed;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.successfulDiv>img{
+    height: 60px;
+    width: 60px;
+    margin: auto;
+    border-radius: 50%
+}
+.successfulDiv>h2{
+    text-align: center;
+    color: green;
+}
+
+.successfulDiv>h3{
+    text-align: center;
+    margin-top: 15px;
+    color: black;
+    font-size: 14px;
+}
+.BillingButton{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 40%;
+ 
+    color: black;
+ 
+}
+.BillingContainerRight1{
+    border:1px solid rgba(0,0,0,0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 3px;
+    padding: 1rem;
+  
+}
+.BillingContainerRight2{
+    border:1px solid rgba(0,0,0,0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 3px;
+    /* padding: 1rem; */
+}
+
+.BillingContainerRight2>div{
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+    padding: 1rem;
+}
+.BillingContainerRightTop,.BillingContainerRightBottom{
+    display: flex;
+    flex-direction: row;
+   
+}
+.BillingContainerRightTop>div:first-child{
+    width: 70%;
+    /* border: 1px solid red; */
+}
+.BillingContainerRightBottom>div:first-child{
+    width: 70%;
+    /* border: 1px solid red; */
+}
+.BillingContainerRight>p{
+    font-size: 10px;
+}
+.BillingContainerRight1>div{
+    display: flex;
+
+}
+.BillingContainerRight1>div>div:first-child{
+    width: 35%;
+    /* border:2px solid red */
+}
+
+@media (max-width: 400px) {
+    .BillingContainer{
+        flex-direction: column;
+    }
+}

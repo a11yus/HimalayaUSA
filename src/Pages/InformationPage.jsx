@@ -1,34 +1,25 @@
 import React from "react";
 import style from "./InformationStyle.module.css";
 import { useState } from "react";
-import { MdArrowForwardIos } from "react-icons/md"; // import { Navigate, useNavigate } from 'react-router-dom'
-// import Cart from "./Cart"
-
-import { Link } from "react-router-dom";
+import { MdArrowForwardIos } from "react-icons/md"; 
+// import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import Gpay from "../image/GpayLogo.PNG"
 import amazonPay from "../image/amzonPayLogo.PNG";
-import OrderSummery from "./OrderSummery";
+import ShopPay from"../image/shopPay logo.PNG";
+import CheckoutPayment from "./CheckoutPayment";
 
-
-
-const CartData=[{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:1
-},
-{
-  images:"https://cdn.shopify.com/s/files/1/0399/1728/9633/products/bamboo-sea-salt-whitening-antiplaque-toothpaste-363920_small.png?v=1660858353",
-  name:"Bamboo & Sea Salt Whitening Antiplaque Toothpaste",
-  price:"5.99",
-  id:2
-}]
 
 export const InformationPage = () => {
-  // const navigate = useNavigate()
+   const navigate = useNavigate()
   const [form, setform] = useState({
     email: "",
     address: "",
+    FirstName:"",
+    LastName:"",
+    Phone:"",
+    City:"",
+    apartment:""
   });
 
   const handleAdd = (e) => {
@@ -37,25 +28,18 @@ export const InformationPage = () => {
       ...form,
       [name]: value,
     });
+    console.log(form);
   };
 
+
+  const [info,setInfo]=useState(JSON.parse(localStorage.getItem("UserInfo")));
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    fetch("  http://localhost:8080/shipping", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        email: form.email,
-        address: form.address,
-      }),
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        setform([...form, d]);
-        setform("");
-      });
-    //  navigate("/payment")
+    localStorage.setItem("UserInfo",JSON.stringify(form));
+  
+    navigate("/shipping")
+
   };
   return (
     <div style={{ marginTop: "100px" }}>
@@ -95,7 +79,7 @@ export const InformationPage = () => {
             </div>
           </div>
           <div className={style.ExpressCheckout}>
-           <div><img alt="logo" src="https://175234-507591-1-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2021/04/The-Shop-Pay-logo.png"/></div>
+           <div><img alt="logo" src={ShopPay}/></div>
            <div><img src={amazonPay} alt="logo"/></div>
            <div><img src={Gpay} alt="logo"/></div>
           </div>
@@ -115,12 +99,12 @@ export const InformationPage = () => {
               <input
                 type="Email"
                 placeholder="Email"
-                required
                 className={style.oneInp}
                 name="email"
                 onChange={handleAdd}
-                value={form.email}
+                value={info ? info.email:form.email}
                 style={{ fontSize: "14px" }}
+                required
               />
             </div>
 
@@ -137,8 +121,9 @@ export const InformationPage = () => {
             <div className={style.addrs}>Shipping address</div>
 
             <div style={{ marginTop: "20px" }}>
-              <select className={style.slct} style={{ fontSize: "14px" }}>
-                <option style={{ fontSize: "14px" }} value="">
+              <select className={style.slct} style={{ fontSize: "14px" }}  >
+                
+                <option style={{ fontSize: "14px" }}  >
                   United States
                 </option>
               </select>
@@ -151,6 +136,10 @@ export const InformationPage = () => {
                   placeholder="First Name"
                   className={style.firstNam}
                   style={{ fontSize: "14px" }}
+                  name="FirstName"
+                  value={info ?info.FirstName :form.FirstName}
+                  onChange={handleAdd}
+                  required
                 />
               </div>
               <div>
@@ -159,6 +148,10 @@ export const InformationPage = () => {
                   placeholder="Last Name"
                   className={style.LastNam}
                   style={{ fontSize: "14px" }}
+                  name="LastName"
+                  value={info ?info.LastName :form.LastName}
+                  onChange={handleAdd}
+                  required
                 />
               </div>
             </div>
@@ -171,17 +164,21 @@ export const InformationPage = () => {
                 className={style.twoInp}
                 name="address"
                 onChange={handleAdd}
-                value={form.address}
+                value={info ?info.address :form.address}
                 style={{ fontSize: "14px" }}
+                
               />
             </div>
             <div>
               <input
                 type="address"
                 placeholder="Apartment,suite,etc. (optional)"
-                required
+                 name="apartment"
+                 onChange={handleAdd} 
                 className={style.twoInp}
                 style={{ fontSize: "14px" }}
+                value={info ?info.apartment :form.apartment}
+                required
               />
             </div>
 
@@ -192,10 +189,16 @@ export const InformationPage = () => {
                   className={style.threeOneInp}
                   placeholder="City"
                   style={{ fontSize: "14px" }}
+                  name="City"
+                  onChange={handleAdd}
+                  value={info ?info.City :form.City}
+                  required
+                 
                 />
               </div>
               <div style={{ width: "27.5%" }}>
-                <select
+                <select 
+               
                   className={style.threeOneInp}
                   style={{ fontSize: "14px" }}
                 >
@@ -416,6 +419,10 @@ export const InformationPage = () => {
                   className={style.threeOneInp}
                   placeholder="PIN Code"
                   style={{ fontSize: "14px" }}
+                  name="Pincode"
+                  value={info ?info.Pincode :form.Pincode}
+                  onChange={handleAdd}
+                  required
                 />
               </div>
             </div>
@@ -427,6 +434,10 @@ export const InformationPage = () => {
                 required
                 className={style.twoInp}
                 style={{ fontSize: "14px" }}
+                name="Phone"
+                value={info ?info.Phone :form.Phone}
+                onChange={handleAdd}
+            
               />
             </div>
 
@@ -483,7 +494,10 @@ export const InformationPage = () => {
           </div>
         </div>
 
-        <div className={style.cartBox}>  <OrderSummery CartData={CartData}/></div>
+        <div className={style.cartBox}> 
+         {/* <OrderSummery CartData={CartData}/> */}
+         <CheckoutPayment />
+         </div>
       </div>
     </div>
   );
