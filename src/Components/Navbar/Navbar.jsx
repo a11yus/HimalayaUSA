@@ -1,10 +1,10 @@
-import React from 'react'
-import { Box, Flex, Text, Image, Spacer, useDisclosure, Heading, Button } from "@chakra-ui/react";
+import React, { useEffect, useState } from 'react'
+import { Box, Flex, Text, Image, Spacer, useDisclosure, Heading, Button, Input } from "@chakra-ui/react";
 import styles from './Navbar.module.css'
 import { Link } from "react-router-dom";
-import { Search2Icon } from "@chakra-ui/icons";
+import { Search2Icon,CloseIcon } from "@chakra-ui/icons";
 import logo from '../../image/logo.png';
-import { useSelector,useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { logoutInit } from "../../Redux/Authreducer/action";
 import {
   Menu,
@@ -12,17 +12,41 @@ import {
   MenuList,
   MenuItem,
 } from '@chakra-ui/react'
-import {BsHandbag} from 'react-icons/bs'
+import { BsHandbag } from 'react-icons/bs'
+import axios from 'axios';
 
 const Navbar = () => {
+  const [inputText, setInputText] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const currentUser = useSelector((store) => store.authReducer.currentUser);
   const dispatch = useDispatch();
-  const handleAuth=()=>{
-    if(currentUser){
+
+  const getProductData = () =>{
+      axios.get(`http://localhost:8080/countries`)
+      .then((res)=>{
+        console.log(res.data);
+        setSuggestions(res.data)
+      })
+      .catch((err)=>{
+        console.log("err", err)
+      })
+  }
+
+  const handleAuth = () => {
+    if (currentUser) {
       dispatch(logoutInit())
     }
   }
+
+  const handleInputTextChange = (e) => {
+    setInputText(e.target.value);
+}
+
+useEffect(()=>{
+  getProductData();
+},[])
   return (
     <>
       <Box className={styles.Navcontainer}>
@@ -48,10 +72,10 @@ const Navbar = () => {
               >
                 Shop
               </MenuButton>
-              <MenuList onMouseEnter={onOpen} onMouseLeave={onClose} style={{ width: "1350px", marginRight: "17px", marginTop: "10px", fontSize: "16px", padding:"30px 20px ",}}>
+              <MenuList onMouseEnter={onOpen} onMouseLeave={onClose} style={{ width: "1350px", marginRight: "17px", marginTop: "10px", fontSize: "16px", padding: "30px 20px ", }}>
                 <Box>
                   <Flex justifyContent={'space-between'} alignItems={'center'}>
-                    <Box  mx={5} p={10}  style={{ width: "100%", lineHeight:"18px" }}>
+                    <Box mx={5} p={10} style={{ width: "100%", lineHeight: "18px" }}>
                       <Flex justifyContent={'space-between'}>
                         <Box>
                           <Heading size={'md'}>&nbsp;&nbsp;Herbal Supplements</Heading><br />
@@ -84,7 +108,7 @@ const Navbar = () => {
                         </Box>
                         <Box>
                           <br />
-                          <br/>
+                          <br />
                           <MenuItem>Heart & cardio</MenuItem>
                           <MenuItem>Immune Support</MenuItem>
                           <MenuItem>Joint & Mobility</MenuItem>
@@ -93,7 +117,7 @@ const Navbar = () => {
                         </Box>
                         <Box>
                           <br />
-                          <br/>
+                          <br />
                           <MenuItem>Respiratory </MenuItem>
                           <MenuItem>Sleep </MenuItem>
                           <MenuItem>Stress & Mood</MenuItem>
@@ -104,7 +128,7 @@ const Navbar = () => {
                       </Flex>
                     </Box>
 
-                    <Box p={5} style={{ width:"40%", textAlign:"center" }}>
+                    <Box p={5} style={{ width: "40%", textAlign: "center" }}>
                       <Image
                         src='https://cdn.shopify.com/s/files/1/0399/1728/9633/files/HUSA_Ashwagandha_90ct_Carton_Bottle_410x.jpg?v=1603142607'
                         alt="menu_image"
@@ -123,15 +147,53 @@ const Navbar = () => {
               <Text>store Locator</Text>
             </Link>
             <Spacer />
-            <Link to="/">{currentUser?currentUser.email:""}</Link>
-            <Link title='Search' to="/"><Search2Icon /></Link>
+            <Link to="/">{currentUser ? currentUser.email : ""}</Link>
+
+            <Menu>
+              <MenuButton title='My Account' >
+                <Search2Icon />
+              </MenuButton>
+
+
+          {/*===================== search div================== */}
+              <MenuList className={styles.search_box} fontSize="16px">
+                <Box px={'100px'} py={'4px'} width={'100%'}>
+                <Box borderBottom={'1px solid gray'} py={2}>
+                  <Flex justifyContent={'space-between'} gap={4}>
+                    <Text>What are you Looking for?</Text>
+                    <Link to='/'>
+                      <button>
+                        <CloseIcon />
+                      </button>
+                    </Link>
+                  </Flex>
+                  <br/>
+                  <Flex justifyContent={'space-between'}  gap={4}>
+                    <Input 
+                    placeholder='Search Products.....' 
+                    height={'50px'} 
+                    variant='unstyled' 
+                    fontSize={'25px'} 
+                    onChange={handleInputTextChange}
+                    />
+                    <Link to='/'>
+                      <button>
+                        <Search2Icon />
+                      </button>
+                    </Link>
+                  </Flex>
+                </Box>
+                </Box>
+              </MenuList>
+              {/*===================== search div end================== */}
+            </Menu>
             <Menu>
               <MenuButton title='My Account' >
                 <i class="fa-regular fa-user"></i>
               </MenuButton>
               <MenuList mt={5} fontSize="16px">
                 <Flex flexDirection={'column'} justifyContent={'center'} px={8} py={5} >
-                  <Link to='/login'><button onClick={handleAuth}>{currentUser?"Logout":"Sign In"}</button></Link>
+                  <Link to='/login'><button onClick={handleAuth}>{currentUser ? "Logout" : "Sign In"}</button></Link>
                   <Link to='/registration'>Register</Link>
                   <Link to='/checkout'>CheckOut</Link>
                 </Flex>
@@ -139,7 +201,7 @@ const Navbar = () => {
             </Menu>
             <Menu>
               <MenuButton title='Cart' >
-               <BsHandbag />
+                <BsHandbag />
               </MenuButton>
               <MenuList>
                 <Box style={{ height: "300px", width: "400px" }}>
