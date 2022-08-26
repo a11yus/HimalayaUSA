@@ -1,0 +1,18 @@
+.email{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-left: 120px;
+    margin-right: 120px;
+    font-family: Poppins, sans-serif;
+}
+.us{
+    font-size: 30px;
+    color: #333333;
+    font-weight: bold;
+}
+.facebook{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}

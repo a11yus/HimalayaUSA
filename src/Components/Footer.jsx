@@ -17,7 +17,7 @@ export const Footer = () => {
   return (
   
         <Box p="3rem" bg="
-        #eef2f0">
+        #eef2f0" mt="3rem">
      <Flex justifyContent="space-between">
      <Flex flexDirection="column">
             <Heading size="md" color="black" >Info </Heading><br/>
