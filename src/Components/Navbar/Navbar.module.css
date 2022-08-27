@@ -24,7 +24,7 @@
     font-weight: 700;
 }
 .search_box{
-    height: 150px;
+    height: auto;
     width: 1400px;
     margin-top: -110px;
 }
