@@ -5,26 +5,26 @@ const OurScience = () => {
   return (
     <Box>
          <Flex>
-        <Box width={'50%'}>
-            <Image height={'100%'} width={'100%'} src='https://i.shgcdn.com/a802e384-7312-4d13-bda1-8859e1afaecf/-/format/auto/-/preview/3000x3000/-/quality/lighter/' alt='image' />
+        <Box width={'50%'} p={4}>
+            <Image height={'100%'} width={'100%'} src='https://i.shgcdn.com/a094b44f-0f48-4abf-b25b-549315cc3d98/-/format/auto/-/preview/3000x3000/-/quality/lighter/' alt='image' />
         </Box>
-        <Box width={'50%'}>
-            <Heading color={'green.900'}>Purity and Efficacy</Heading><br/>
-            <p>The complexity and timing of the entire seed-to-shelf process for Himalaya and for the plants themselves, is highlighted by three important mandates: purity, efficacy, and batch-to-batch consistency.</p>
-            <p>We know the success of traditional plant medicine is based on several integral parts that extend from the most advanced agricultural research and practices, to extraction methodologies, to formulating approaches and dosage strategies.</p>
-            <p>To accomplish all of this, Himalaya maintains total control over the farming, harvesting, research, manufacturing, and distribution of all our products.</p>
-            
+        <Box width={'50%'} p={4}>
+            <Heading color={'green.900'}>Our Science</Heading><br/>
+           <p>Himalaya's core interest has always been to ensure the health benefits of our herbal formulas and standalone solo herbs with product-specific, double-blind, placebo-controlled human clinical trials on all of our products.</p>
+           <p>Our commitment to Ayurvedic principles, and research to produce natural, safe, and effective health products is driven by our soul mission, which is to help individual people maintain a healthy, long, and high-quality of life. We like to think of ourselves as providing solutions for you, which helps make our world well, one person at a time.</p>
+           <p>We take pride in the fact that our formulas undergo years of primary research before we offer them to you. Our commitment to ensure we have product-specific science on hand before we launch a product into the marketplace is exceptional within the natural products industry.</p>
+           <p>Himalaya has conducted over 1,200 clinical studies, many of which have been published in numerous, highly-regarded medical journals including The European Journal of Pharmacology, Phytotherapy Research, The Indian Journal of Clinical Practice, Australian Journal of Medical Herbalism, and JAMA, India.</p>
         </Box>
     </Flex>
     <Flex>
-    <Box width={'50%'}>
-            <Heading color={'green.900'}>Our Farms</Heading><br/>
-            <p>Himalaya's herbs are grown on over 1,000 acres of farmland through fair trade, farming partnerships. Herbs are also sustainably wildcrafted on over 5,000 acres.</p>
-            <p>Farms are located in regions most suitable to the individual herb so that the best possible quality and potency are achieved in the harvest. Just as one wine grape has more character and flavor when grown in a very specific region, the plants used in healthcare often perform best when they’re grown and harvested in their own unique native soil.</p>
-           
+    <Box width={'50%'} p={5}>
+            <Heading color={'green.900'}>Our Distribution</Heading><br/>
+            <p>After being grown, manufactured and packaged in India, finished Himalaya products are shipped to our North American corporate office, warehouse and distribution center located in Sugar Land, Texas.</p>
+            <p>Here we maintain state-of-the-art storage and shipping processes in climate-controlled environments until our products make their way to our retailers, and then to your home.</p>
+       
         </Box>
         <Box width={'50%'}>
-            <Image height={'100%'} width={'100%'} src='https://i.shgcdn.com/6fdef74e-1e57-4bd4-8f3f-617132184feb/-/format/auto/-/preview/3000x3000/-/quality/lighter/' alt='image' />
+            <Image height={'100%'} width={'100%'} src='https://i.shgcdn.com/5a1a59af-3931-4d16-bff2-004468e44137/-/format/auto/-/preview/3000x3000/-/quality/lighter/' alt='image' />
         </Box>
         
     </Flex>

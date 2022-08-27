@@ -64,11 +64,11 @@ const About = () => {
             </Box>
             <Box>
                 <Flex justifyContent={'space-around'} className={styles.menu_box}>
-                    <Box><Button onClick={handleStory} >OUR STORY</Button></Box>
-                    <Box><Button onClick={handleRoots}>OUR ROOTS</Button></Box>
-                    <Box><Button onClick={handleProcess}>OUR PROCESS</Button></Box>
-                    <Box><Button onClick={handleScience}>OUR SCIENCE</Button></Box>
-                    <Box><Button onClick={handleInitiative}>OUR INITIATIVES</Button></Box>
+                    <Box><Button colorScheme={'green'} onClick={handleStory} >OUR STORY</Button></Box>
+                    <Box><Button colorScheme={'green'} onClick={handleRoots}>OUR ROOTS</Button></Box>
+                    <Box><Button colorScheme={'green'} onClick={handleProcess}>OUR PROCESS</Button></Box>
+                    <Box><Button colorScheme={'green'} onClick={handleScience}>OUR SCIENCE</Button></Box>
+                    <Box><Button colorScheme={'green'} onClick={handleInitiative}>OUR INITIATIVES</Button></Box>
                 </Flex>
             </Box>
             <Box>

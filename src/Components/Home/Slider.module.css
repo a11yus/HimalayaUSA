@@ -55,3 +55,8 @@ background-color: #a3b49b;
 .gray{
     display: flex;
 }
+Link{
+    padding: 50px;
+    margin: 20px;
+    border: 1px solid red;
+}

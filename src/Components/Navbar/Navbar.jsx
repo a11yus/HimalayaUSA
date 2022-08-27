@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Box, Flex, Text, Image, Spacer, useDisclosure, Heading, Button, Input } from "@chakra-ui/react";
 import styles from './Navbar.module.css'
 import { Link } from "react-router-dom";
-import { Search2Icon, CloseIcon } from "@chakra-ui/icons";
+import { Search2Icon, CloseIcon,DeleteIcon } from "@chakra-ui/icons";
 import logo from '../../image/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutInit } from "../../Redux/AuthReducer/action";
+import { logoutInit } from "../../Redux/Authreducer/action";
 import {
   Menu,
   MenuButton,
@@ -17,6 +17,7 @@ import axios from 'axios';
 
 const Navbar = () => {
   // const [inputText, setInputText] = useState("");
+  const [cartData, setCartData] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState("");
@@ -62,6 +63,25 @@ const Navbar = () => {
   useEffect(() => {
     getProductData();
   }, [])
+
+  let total_price = 0;
+        for( let i = 0; i < cartData.length; i++ ) {
+            total_price += (cartData[i].Price * cartData[i].count);
+        }
+  
+  const getCartData = () =>{
+    axios.get('https://my-himalayausa-project.herokuapp.com/cart')
+    .then((res)=>{
+      setCartData(res.data)
+    })
+    .catch((err)=>{
+      console.log("err",err)
+    })
+  }
+  useEffect(()=>{
+    getCartData();
+  },[cartData.length])
+  
   console.log("sugesion", suggestions);
   return (
     <>
@@ -95,19 +115,19 @@ const Navbar = () => {
                       <Flex justifyContent={'space-between'}>
                         <Box>
                           <Heading size={'md'}>&nbsp;&nbsp;Herbal Supplements</Heading><br />
-                          <MenuItem>single Herbs Supplements</MenuItem>
-                          <MenuItem>Multi-Ingredient Supplements</MenuItem>
+                          <MenuItem><Link to='/productPage'>single Herbs Supplements</Link></MenuItem>
+                          <MenuItem><Link to='/productPage'>Multi-Ingredient Supplements</Link></MenuItem>
                         </Box>
                         <Box>
                           <Heading size={'md'}>&nbsp;&nbsp;Oral Care</Heading><br />
-                          <MenuItem>Adult Toothpaste</MenuItem>
-                          <MenuItem>Kids Toothpaste</MenuItem>
+                          <MenuItem><Link to='/productPage'>Adult Toothpaste</Link></MenuItem>
+                          <MenuItem><Link to='/productPage'>Kids Toothpaste</Link></MenuItem>
                         </Box>
                         <Box>
                           <Heading size={'md'}>&nbsp;&nbsp;Personal Care</Heading><br />
-                          <MenuItem>Face Care</MenuItem>
-                          <MenuItem>Cleansing Bars</MenuItem>
-                          <MenuItem>Balm</MenuItem>
+                          <MenuItem><Link to='/productPage'>Face Care</Link></MenuItem>
+                          <MenuItem><Link to='/productPage'>Cleansing Bars</Link></MenuItem>
+                          <MenuItem><Link to='/productPage'>Balm</Link></MenuItem>
                         </Box>
                       </Flex>
                       <hr />
@@ -174,22 +194,21 @@ const Navbar = () => {
              : ""}</Link>
 
             <Menu>
-              <MenuButton title='My Account' >
+              <MenuButton title='search' >
                 <Search2Icon />
               </MenuButton>
 
 
               {/*===================== search div================== */}
-              <MenuList className={styles.search_box} fontSize="16px">
+              <MenuList className={styles.search_box} fontSize="1.2rem">
                 <Box px={'100px'} py={'4px'} width={'100%'}>
                   <Box borderBottom={'1px solid gray'} py={2}>
                     <Flex justifyContent={'space-between'} gap={4}>
                       <Text>What are you Looking for?</Text>
-                      <Link to='/'>
-                        <button >
+                        <button onClick={onClose}>
                           <CloseIcon />
                         </button>
-                      </Link>
+                    
                     </Flex>
                     <br />
                     <Flex justifyContent={'space-between'} gap={4}>
@@ -210,16 +229,18 @@ const Navbar = () => {
                 </Box>
                 {
                   suggestions ?
+                  <Box maxHeight={'400px'} maxWidth={'100vw'} marginRight={'10px'} backgroundColor={'white'} overflowY={'scroll'}>
                     <Flex justifyContent={'space-around'} flexWrap={'wrap'}>
                       {
                         suggestions.map((product) => (
-                            <Box width={'250px'} px={10} >
+                            <Box width={'200px'} px={3} >
                               <Image height={'180px'} width={'150px'} src={product.Img} alt='product' />
-                              <Text>{product.Name}</Text>
+                              <Text fontSize={'0.9rem'}>{product.Name}</Text>
                             </Box>
                         ))
                       }
                     </Flex>
+                    </Box>
                     :
                     ""
                 }
@@ -239,16 +260,45 @@ const Navbar = () => {
               </MenuList>
             </Menu>
             <Menu>
+            {/*=========== cart div=========== */}
               <MenuButton title='Cart' >
-                <BsHandbag />
+              <Flex fontSize={'20px'}>
+                <Box><BsHandbag /></Box>
+                <Box height={'10px'} width={'10px'}><sup style={{backgroundColor:'black', color:'white', borderRadius:'20%'}}>{cartData.length}</sup></Box>
+              </Flex>    
               </MenuButton>
               <MenuList>
-                <Box style={{ height: "300px", width: "400px" }}>
-                  <Text>No product in the cart</Text>
+                <Box style={{ width: "450px", maxHeight:"400px", overflow:'scroll', fontSize:'16px' }}>
+
+               {
+                 cartData.length > 0 && cartData.map((item)=>(
+                  <Flex justifyContent={'space-around'} gap={3} m={3} border={'1px solid'} borderColor={'gray.100'}>
+                    <Box height={'80px'} width={'80px'}><Image src={item.Img} alt='item_img' height={'100%'} width={'100%'}/></Box>
+                    <Box width={'300px'}>
+                      <Flex flexDirection={'column'}>
+                        <Box>{item.Name}</Box>
+                        <Box>{item.count} <span style={{fontSize:'10px'}}><CloseIcon/></span> ${item.Price}</Box>
+                      </Flex>
+                    </Box>
+                    <Box  height={'50px'} width={'50px'}><DeleteIcon /></Box>
+                  </Flex>
+                 ))
+               }
+              
+                  <Box p={5}>
+                    <Flex>
+                      <Box>Total</Box> &nbsp;&nbsp;
+                      <Box>$ {total_price.toFixed(2)}
+                      </Box>
+                    </Flex>
+                  </Box>
+               
+                  <Link to="/cartPage"><Button colorScheme={'green'} width={'100%'}>CheckOut</Button></Link>
                 </Box>
               </MenuList>
+              {/*=========== cart div end=========== */}
             </Menu>
-            <Link to="/"></Link>
+            
           </Flex>
         </Box>
       </Box>

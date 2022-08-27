@@ -80,7 +80,7 @@ const PaymentPage = () => {
                 </div>
                 <div>
                   <p className={Style.PaymentPara}>
-                    {info.email ? info.email : "Fill the details"}
+                    {info ? info.email : "Fill the details"}
                 
                   </p>
                 </div>
@@ -96,7 +96,7 @@ const PaymentPage = () => {
                 </div>
                 <div>
                   <p className={Style.PaymentPara}>
-                    {info.address ? info.address : "Fill the details"}
+                    {info ? info.address : "Fill the details"}
                   
                   </p>
                 </div>
