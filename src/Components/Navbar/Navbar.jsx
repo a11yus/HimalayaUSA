@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Box, Flex, Text, Image, Spacer, useDisclosure, Heading, Button, Input } from "@chakra-ui/react";
 import styles from './Navbar.module.css'
 import { Link } from "react-router-dom";
-import { Search2Icon,CloseIcon } from "@chakra-ui/icons";
+import { Search2Icon, CloseIcon } from "@chakra-ui/icons";
 import logo from '../../image/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutInit } from "../../Redux/Authreducer/action";
@@ -16,20 +16,22 @@ import { BsHandbag } from 'react-icons/bs'
 import axios from 'axios';
 
 const Navbar = () => {
-  const [inputText, setInputText] = useState("");
+  // const [inputText, setInputText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState("");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const currentUser = useSelector((store) => store.authReducer.currentUser);
   const dispatch = useDispatch();
 
-  const getProductData = () =>{
-      axios.get(`http://localhost:8080/countries`)
-      .then((res)=>{
-        console.log(res.data);
-        setSuggestions(res.data)
+  const getProductData = () => {
+    axios.get(`https://mockserverdata.herokuapp.com/products`)
+      .then((res) => {
+        //console.log(res.data);
+        setProducts(res.data)
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log("err", err)
       })
   }
@@ -40,13 +42,27 @@ const Navbar = () => {
     }
   }
 
-  const handleInputTextChange = (e) => {
-    setInputText(e.target.value);
-}
+  const handleInputTextChange = useCallback((e) => {
+    setQuery(e.target.value);
+  }, []);
 
-useEffect(()=>{
-  getProductData();
-},[])
+  useEffect(() => {
+    if (query === "") {
+      setSuggestions([])
+    } else {
+      let newProductsSuggestions = products.filter(item => {
+        return item.Name.toLowerCase().indexOf(query) !== -1 ? true : false;
+      }).map((item) => {
+        return (item)
+      });
+      setSuggestions(newProductsSuggestions);
+      console.log(newProductsSuggestions);
+    }
+  }, [query])
+  useEffect(() => {
+    getProductData();
+  }, [])
+  console.log("sugesion", suggestions);
   return (
     <>
       <Box className={styles.Navcontainer}>
@@ -155,35 +171,50 @@ useEffect(()=>{
               </MenuButton>
 
 
-          {/*===================== search div================== */}
+              {/*===================== search div================== */}
               <MenuList className={styles.search_box} fontSize="16px">
                 <Box px={'100px'} py={'4px'} width={'100%'}>
-                <Box borderBottom={'1px solid gray'} py={2}>
-                  <Flex justifyContent={'space-between'} gap={4}>
-                    <Text>What are you Looking for?</Text>
-                    <Link to='/'>
-                      <button>
-                        <CloseIcon />
-                      </button>
-                    </Link>
-                  </Flex>
-                  <br/>
-                  <Flex justifyContent={'space-between'}  gap={4}>
-                    <Input 
-                    placeholder='Search Products.....' 
-                    height={'50px'} 
-                    variant='unstyled' 
-                    fontSize={'25px'} 
-                    onChange={handleInputTextChange}
-                    />
-                    <Link to='/'>
-                      <button>
-                        <Search2Icon />
-                      </button>
-                    </Link>
-                  </Flex>
+                  <Box borderBottom={'1px solid gray'} py={2}>
+                    <Flex justifyContent={'space-between'} gap={4}>
+                      <Text>What are you Looking for?</Text>
+                      <Link to='/'>
+                        <button >
+                          <CloseIcon />
+                        </button>
+                      </Link>
+                    </Flex>
+                    <br />
+                    <Flex justifyContent={'space-between'} gap={4}>
+                      <Input
+                        placeholder='Search Products.....'
+                        height={'50px'}
+                        variant='unstyled'
+                        fontSize={'25px'}
+                        onChange={handleInputTextChange}
+                      />
+                      <Link to='/'>
+                        <button>
+                          <Search2Icon />
+                        </button>
+                      </Link>
+                    </Flex>
+                  </Box>
                 </Box>
-                </Box>
+                {
+                  suggestions ?
+                    <Flex justifyContent={'space-around'} flexWrap={'wrap'}>
+                      {
+                        suggestions.map((product) => (
+                            <Box width={'250px'} px={10} >
+                              <Image height={'180px'} width={'150px'} src={product.Img} alt='product' />
+                              <Text>{product.Name}</Text>
+                            </Box>
+                        ))
+                      }
+                    </Flex>
+                    :
+                    ""
+                }
               </MenuList>
               {/*===================== search div end================== */}
             </Menu>
