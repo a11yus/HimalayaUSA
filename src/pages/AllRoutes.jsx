@@ -10,9 +10,12 @@ import UserRoute from "../Components/PrivateRoute";
 import { useDispatch } from "react-redux";
 import { auth } from "../firebase";
 import BillingPage from "./BillingPage";
+import About from "./About/About";
+
 import ProductPage from "./Products/ProductPage";
 import CartPage from "./Products/CartPage";
 import StoreLocator from "./StoreLocator";
+
 
 
 
@@ -28,6 +31,7 @@ const AllRoutes = () => {
       <Route path="/cartPage" element={<CartPage />}></Route>
       <Route path="/registration" element={<Registration />}></Route> 
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/about" element={<About />}></Route>
       <Route path="/storelocator" element={<StoreLocator/>}></Route>
       <Route path="/billing" element={<BillingPage />}></Route>
       <Route
