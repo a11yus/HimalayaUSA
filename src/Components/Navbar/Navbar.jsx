@@ -159,7 +159,7 @@ const Navbar = () => {
             <Link to='/'>
               <Text>About</Text>
             </Link>
-            <Link to='/'>
+            <Link to='/storelocator'>
               <Text>store Locator</Text>
             </Link>
             <Spacer />

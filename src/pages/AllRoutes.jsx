@@ -12,6 +12,7 @@ import { auth } from "../firebase";
 import BillingPage from "./BillingPage";
 import ProductPage from "./Products/ProductPage";
 import CartPage from "./Products/CartPage";
+import StoreLocator from "./StoreLocator";
 
 
 
@@ -27,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/cartPage" element={<CartPage />}></Route>
       <Route path="/registration" element={<Registration />}></Route> 
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/storelocator" element={<StoreLocator/>}></Route>
       <Route path="/billing" element={<BillingPage />}></Route>
       <Route
         path="/checkout"
