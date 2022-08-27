@@ -55,3 +55,24 @@
     background-color: black;
     
 }
+@media all and (min-width:421 ) and (max-width:765)
+      {
+       .top{
+        width: 85%;
+       }
+       .gandha{
+        color: #48cab2;
+        font-size: 20px;
+       }
+       
+       }
+      
+      
+      @media all and (min-width:81 ) and (max-width:420)
+      {
+       .top{
+        width: 85%;
+       }
+       
+
+      }

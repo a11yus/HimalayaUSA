@@ -28,8 +28,8 @@ import styles from "./Test.module.css"
             <p className={styles.sub_heading}>Ashwagandha</p>
             </div>
         <div  className={styles.box_slide3}>
-            <h3 className={styles.fav}>"Recommended to me by my local health food store.<br/>This product is a godSend." </h3>
-            <p className={styles.sub_heading}>LiveCare</p>
+            <h3 className={styles.fav}>"Recommended to me by my local health food store.This product is a godSend." </h3>
+            <p className={styles.sub_heading}>LiveCare ®</p>
         </div >
         <div  className={styles.box_slide4}>
             <h3 className={styles.fav}>"I've seen such a drastic difference in my memory,it's<br/> hard to believe"</h3>
