@@ -1,0 +1,42 @@
+.StoreLocatorContainer {
+  display: flex;
+  flex-direction: column;
+}
+.StoreLocatorContainer > div {
+  /* border:2px solid black; */
+  padding-left: 5rem;
+}
+
+.StoreLocatorContainer > div > h1 {
+  font-weight: 600;
+  font-size: 40px;
+  color: black;
+  /* margin-bottom: 50px; */
+}
+.mapSearch {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+  width: 100%;
+  margin: auto;
+  /* margin-bottom: 50px; */
+  padding: 0.5rem;
+  margin-top: 0px;
+
+}
+.SearchLogo {
+  font-size: 40px;
+  margin-top: -11px;
+  margin-left: 15px;
+  
+}
+.searchContainer {
+ margin-top: 15px;
+ margin-bottom: 15px;
+  display: flex;
+}
+.searchContainer1 {
+  width: 80%;
+}
+.searchContainer2 {
+  width: max-content;
+}
