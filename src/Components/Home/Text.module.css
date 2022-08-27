@@ -36,6 +36,10 @@
     text-align: center;
     color: #000000;
 }
+
+.black:hover{
+    text-decoration: underline;
+}
 .see{
  color:#a3b49b;
  font-size: 14px;
@@ -43,3 +47,13 @@
  margin: 5px 5px 0px;
  text-align: center;
 }
+
+@media all and (min-width:421 ) and (max-width:765)
+      {
+.by{
+    display: block;
+}
+        .shop{
+            display: block;
+        }
+      }

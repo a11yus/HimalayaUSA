@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Text.module.css"
 
 const text=[
@@ -30,7 +31,7 @@ const Text=()=>{
             {text.map((item)=>(
                 <div className={styles.cat}>
                 <img src={item.img} width="380px"/>
-              <a><h2 className={styles.black}>{item.head}</h2></a>
+              <h2 className={styles.black}><Link to="/ProductPage">{item.head}</Link></h2>
                <p className={styles.see}>{item.des}</p>
                 </div>
             ))}

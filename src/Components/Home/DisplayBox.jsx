@@ -1,6 +1,8 @@
 
 import styles from "./DisplayBox.module.css"
-import { Box, Button} from '@chakra-ui/react'
+import { Box} from '@chakra-ui/react'
+import { Link } from "react-router-dom"
+
 const DisplayBox=()=>{
     return(
         <Box>
@@ -9,7 +11,7 @@ const DisplayBox=()=>{
             <div  className={styles.ash}>
             <div  className={styles.gandha}>ASHWAGANDHA</div>
         <p className={styles.star}>A star performer for stress and energy in a <br/>potent, organic caplet.</p>
-     <button className={styles.blue}  ><a href="">SHOP NOW</a></button> 
+     <button className={styles.blue} ><Link to="/ProductPage">SHOP NOW</Link></button> 
      </div>
         </div>
         </div>
