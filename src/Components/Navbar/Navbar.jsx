@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Search2Icon, CloseIcon } from "@chakra-ui/icons";
 import logo from '../../image/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutInit } from "../../Redux/Authreducer/action";
+import { logoutInit } from "../../Redux/AuthReducer/action";
 import {
   Menu,
   MenuButton,
@@ -22,7 +22,7 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const currentUser = useSelector((store) => store.authReducer.currentUser);
+  const currentUser = useSelector((store) => store.AuthReducer.currentUser);
   const dispatch = useDispatch();
 
   const getProductData = () => {

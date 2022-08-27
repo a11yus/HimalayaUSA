@@ -3,7 +3,7 @@ import {  useNavigate } from "react-router-dom";
 import {  useSelector } from "react-redux";
 
 const UserRoute = ({ children, ...rest }) => {
-  const currentUser = useSelector((store) => store.authReducer.currentUser);
+  const currentUser = useSelector((store) => store.AuthReducer.currentUser);
   // return currentUser ? <Route {...rest} /> : <LoadingToRedirect/>
   const navigate = useNavigate()
   useEffect(() => {
