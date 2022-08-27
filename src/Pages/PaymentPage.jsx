@@ -31,7 +31,6 @@ const PaymentPage = () => {
   if (payNow) {
     setTimeout(() => {
       setpayNow(false);
-
       navigate("/billing");
     }, 3000);
   }
