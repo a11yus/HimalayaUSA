@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-import styles from "./Text.module.css"
+import styles from "./Text.module.css";
+import {Link} from 'react-router-dom';
+
 
 const text=[
     {
@@ -27,7 +28,8 @@ const Text=()=>{
     return(
         <div >
             <h3 className={styles.by}>Shop By Category</h3>
-        <div className={styles.shop}>
+            <Link to='/productPage'>
+        <div className={styles.shop} >
             {text.map((item)=>(
                 <div className={styles.cat}>
                 <img src={item.img} width="380px"/>
@@ -37,6 +39,7 @@ const Text=()=>{
             ))}
 
         </div>
+        </Link>
         </div>
     )
 }

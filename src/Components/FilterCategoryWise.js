@@ -1,4 +1,4 @@
-import  "../Pages/Products/ProductPage.css"
+import  "../pages/Products/ProductPage.css"
 
 const FilterCategoryWise = ({queryData}) => {
 

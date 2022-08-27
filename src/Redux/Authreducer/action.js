@@ -68,9 +68,13 @@ export const signupInit = (email, password, displayName) => {
         user.updateProfile({
           displayName,
         });
+        alert("Login Success!!")
         dispatch(signupSuccess(user));
       })
-      .catch((error) => dispatch(signupFailure(error)));
+      .catch((error) => {
+        alert("Login Failed!!.. Data already registerd !!")
+        dispatch(signupFailure(error))
+      });
   };
 };
 
@@ -80,9 +84,13 @@ export const loginInit = (email, password) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
+        alert("Login Success!!")
         dispatch(loginSuccess(user));
       })
-      .catch((error) => dispatch(loginFailure(error.massage)));
+      .catch((error) => {
+        alert("Login Failed!!.. Wrong information!!!")
+        dispatch(loginFailure(error.massage))
+      });
   };
 };
 

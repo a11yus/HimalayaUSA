@@ -1,6 +1,6 @@
 import { legacy_createStore, applyMiddleware ,combineReducers} from "redux";
 import {reducer as AppReducer} from "./AppReducer/reducer"
-import {authReducer as AuthReducer } from "./AuthReducer/reducer";
+import { authReducer as AuthReducer } from "./Authreducer/reducer";
 import logger from 'redux-logger';
 import thunk from "redux-thunk"
 

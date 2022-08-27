@@ -2,7 +2,7 @@ import { Box, Button, Container, Flex, Heading, Input, Text } from '@chakra-ui/r
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { loginInit } from "../../Redux/AuthReducer/action";
+import { loginInit } from "../../Redux/Authreducer/action";
 
 const Login = () => {
     const [state, setState] = useState({
