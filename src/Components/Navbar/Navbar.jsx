@@ -156,14 +156,22 @@ const Navbar = () => {
                 </Box>
               </MenuList>
             </Menu>
-            <Link to='/'>
+            <Link to='/about'>
               <Text>About</Text>
             </Link>
             <Link to='/'>
               <Text>store Locator</Text>
             </Link>
             <Spacer />
-            <Link to="/">{currentUser ? currentUser.email : ""}</Link>
+            <Link to="/"> {currentUser ? 
+             
+            <Text> Hi✋
+            {
+              currentUser.displayName
+            }
+          
+            </Text>  
+             : ""}</Link>
 
             <Menu>
               <MenuButton title='My Account' >
