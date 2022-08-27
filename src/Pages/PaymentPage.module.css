@@ -1,0 +1,396 @@
+.PaymentContainer {
+  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI";
+
+  font-family: "Poppins", sans-serif;
+
+  background-color: #ffffff;
+  margin: 0px 123.2px;
+  padding: 0px 74.8px;
+}
+
+.PaymentContainer > div {
+  display: flex;
+  margin-top: 5px;
+  /* border:1px solid yellowgreen; */
+  margin-left: auto;
+}
+.afterImg {
+  /* border: 1px solid black; */
+  margin: auto;
+  height: 40px;
+  display: flex;
+  font-size: 11px;
+  gap: 10px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.afterImg > li {
+  margin-top: 3.5px;
+  /* border:1px solid red */
+}
+.PaymentTitle {
+    width: 180px;
+    height: 60px;
+  margin: auto;
+  margin-top: 5px;
+  /* border:1px solid blue; */
+  margin-left: 5px;
+}
+
+.PaymentLeft {
+  height: auto;
+  width: 638px;
+  padding: 56px 66px 0px 0px;
+  height: auto;
+
+  /* border: 1px solid blue; */
+
+  background-color: #ffffff;
+  /* background-color: aqua; */
+}
+.PaymentLeft > div {
+  height: fit-content;
+  width: 100%;
+  border: 0.1px solid #cccccc;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px;
+  margin: 25px auto 15px auto;
+  background-color: #ffffff;
+  /* background-color: #ff6781; */
+}
+.PaymentRight {
+  background-color:
+  #f4f7f3;
+
+  height: auto;
+  width: 462px;
+}
+/* .EndRight {
+  background-color: cadetblue;
+} */
+.AddingCartData {
+  background-color: #fafafa;
+
+  overflow: auto;
+}
+.PaymentContact,
+.PaymentShipto,
+.PaymentMethod {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px;
+  text-align: left;
+}
+/* .PaymentContact{
+    background-color: darkgreen;
+} */
+
+.PaymentContact,
+.PaymentShipto {
+  border-bottom: 0.1px solid #cccccc;
+}
+.Div1title {
+  color: #8a7373;
+}
+.change {
+  font-size: 10px;
+  /* color: #ff6781; */
+}
+.PaymentPara {
+  width: 280px;
+  margin-left: 5px;
+}
+.Div2title {
+  text-align: left;
+  font-size: 14px;
+  border: 1px solid;
+  border: none !important;
+  margin-bottom: -25px !important;
+}
+
+.PaymentOpts > div {
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid #ff6781;
+  width: 100%;
+  border: 0.1px solid #cccccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.PaymentOpts {
+  border: 1px solid #ff6781;
+}
+
+.Paytmbox {
+  width: 90%px;
+}
+.radio1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.paymentCardsDiv {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 5px;
+}
+.paymentCards {
+  width: 38px;
+  height: 24px;
+  border: 0.1px solid #cccccc;
+  border-radius: 3px;
+}
+.PaymentHiddenDiv {
+  height: 120px;
+  width: 150px;
+  font-size: 14px;
+  margin: auto;
+  background-color: #fafafa;
+  margin-top: -25px;
+  /* border: 1px solid; */
+}
+
+.hiddenpara {
+  font-size: 10px;
+  background-color: #fafafa;
+}
+/* .razopay{
+    font-size: 8px;
+    border:1px solid;
+    margin-left: 0px;
+} */
+
+/* *************** */
+.paymentbottmDiv {
+  height: 60.4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  border: none !important;
+}
+.paymentbottmDiv > div:first-child {
+  color: #989b8d;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.Continuebtn {
+  font-size: 14px;
+  font-weight: 200;
+  padding: 1rem ;
+  border-radius: 5px;
+  background-color: #a3b49b;
+  color: black;
+  font-weight: 600;
+}
+.refundDiv {
+  display: flex;
+}
+.refundDiv > p {
+  color: #989b8d;
+  font-size: 12px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* *************** */
+
+.paymentbottmDiv {
+  display: flex;
+  font-size: small;
+  margin-left: 35px;
+  /* color: #ff6781; */
+}
+
+.bcktocarticon {
+  font-size: 20px;
+}
+.paymentHor {
+  width: 100%;
+  margin: auto;
+}
+.bottomFoot {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  /* color: #ff6781; */
+  font-size: 12px;
+  gap: 25px;
+  /* justify-content: space-between; */
+  margin-top: 5px;
+  margin-bottom: 50px;
+  
+  color:#989b8d;
+}
+/* .bottomFoot>p{
+  margin-bottom: 50px;
+
+} */
+.paytmImg {
+  height: 22px;
+  width: 120px;
+  margin-left: 25px;
+}
+.paymentRadio {
+  color: #ff6781;
+}
+.PaymentRight {
+  background-color: #fafafa;
+}
+
+.EndRight {
+  height: auto;
+  border-left: 1px solid #cccccc;
+  background-color: #fafafa;
+}
+.EndRLeft {
+  border-right: 1px solid #cccccc;
+  background-color: 
+  #f4f7f3;
+ 
+}
+
+.addrs {
+  text-align: left;
+  /* border: 1px solid black; */
+  margin-top: 5px;
+  font-weight: 500;
+}
+.slct {
+  width: 100%;
+  height: 45px;
+  margin-right: 54px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.naminp {
+  /* border: 1px solid black; */
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  gap: 35px;
+}
+
+.firstNam {
+  width: 110%;
+  height: 45px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-right: 30px;
+}
+
+.LastNam {
+  width: 115%;
+  height: 45px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.twoInp {
+  width: 100% !important;
+  height: 45px;
+  margin-right: 47px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 10px;
+}
+
+.threeInp {
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.twoInp {
+  width: 90%;
+  height: 45px;
+  margin-right: 47px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 10px;
+}
+
+.threeOneInp {
+  width: 114%;
+  height: 45px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+
+/* Right part Start */
+.PaymentRight{
+  /* border:1px solid red; */
+  padding: 1rem;
+  padding-top: 50px;
+  
+}
+.PaymentRight4{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+}
+.PaymentRight31,.PaymentRight32{
+  display: flex;
+  justify-content: space-between;
+}
+.PaymentRight31{
+  padding: 0.5rem;
+ 
+}
+.PaymentRight2{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.PaymentRight2>button{
+  background-color: #a3b49b;
+  color: black;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  height: 50px;
+  font-size: 14px;
+
+}
+.PaymentRight2>input{
+  border-radius: 3px;
+  height: 100%;
+  padding: 0.5rem;
+  border:1px solid rgba(0,0,0,0.1);
+}
+.PaymentRight1{
+  display: flex;
+  
+  color: black;
+  padding: 0.5rem;
+}
+.PaymentRight1>div>img{
+  height: 80px;
+  width: 100px;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+ 
+}
+.PaymentRight1>div>p{
+  font-size: 14px;
+  margin-left: 15px;
+}

@@ -1,0 +1,19 @@
+.cartBox_any{
+    border-top: 1px solid lightgrey;
+    background-color: #f4f7f3;
+    border-bottom: 1px solid lightgrey;
+    padding: 2%;
+    overflow:auto;
+    height: 250px;
+    width: 90%;
+
+}
+.countDisplayBox {
+    display: flex;
+    flex-direction: row;
+    background-color: #f4f7f3;
+    width: 25%;
+}
+.input::placeholder {
+    font: 18px/3 sans-serif;
+}

@@ -30,7 +30,7 @@ const CartPage = () => {
     }
 
     const backToProductPage = () => {
-        navigate("/");
+        navigate("/ProductPage");
         }
 
     const handleCartItemDelete = (id) => {

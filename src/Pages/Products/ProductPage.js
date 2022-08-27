@@ -55,14 +55,14 @@ const ProductPage = () => {
             : "Products"
           }
           </h1>
-        <div>
+        {/* <div>
         <Link to='/Cart' className='icons'>
           <img 
           style={{ height: '20px', width: '20px' }}
           src="https://www.linkpicture.com/q/shopping-bag.png" alt="" 
           />
         </Link>
-        </div>
+        </div> */}
       </div>
       <div className="product-menu-dropdown-div">
         <select className="filter" 
