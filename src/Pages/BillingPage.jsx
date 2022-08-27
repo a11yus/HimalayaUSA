@@ -16,8 +16,7 @@ const BillingPage = () => {
 
   const [check, setCheck] = useState(dt.toString());
   console.log(check);
-  //  const d = new Date();
-  //  document.getElementById("demo").innerHTML = d.toString();
+
 
   const [animation,setAnimation] =useState(true);
   setTimeout(() => {
