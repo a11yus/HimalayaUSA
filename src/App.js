@@ -1,5 +1,6 @@
+
 import { Box } from "@chakra-ui/react";
-import Layout from "./pages/Layout";
+import Layout from "./Pages/Layout";
 
 import "./App.css";
 function App() {

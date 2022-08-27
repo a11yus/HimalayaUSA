@@ -2,7 +2,7 @@ import { Box, Button, Container, Flex, Heading, Input, Text } from '@chakra-ui/r
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate} from "react-router-dom";
-import { signupInit } from "../../Redux/Authreducer/action";
+import { signupInit } from "../../Redux/AuthReducer/action";
 
 const Registration = () => {
     const [state, setState] = useState({
@@ -11,7 +11,7 @@ const Registration = () => {
         password: "",
         confirmPassword: ""
     });
-    const currentUser = useSelector((store) => store.authReducer.currentUser)
+    const currentUser = useSelector((store) => store.AuthReducer.currentUser)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 

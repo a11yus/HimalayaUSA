@@ -8,6 +8,7 @@ import Gpay from "../image/GpayLogo.PNG"
 import amazonPay from "../image/amzonPayLogo.PNG";
 import ShopPay from"../image/shopPay logo.PNG";
 import CheckoutPayment from "./CheckoutPayment";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
 
 export const InformationPage = () => {
@@ -470,7 +471,14 @@ export const InformationPage = () => {
             </div>
 
             <div className={style.btnBox}>
-              <div className={style.return}>Return to Cart</div>
+              <div className={style.return} style={{display:"flex"}} >
+               
+                <div>
+                <span style={{marginTop:"3.5px"}}>< MdOutlineArrowBackIosNew /></span></div>
+                <div>Return to Cart</div>
+
+               
+              </div>
               <div>
                 <button type="submit" className={style.Continuebtn}>
                   <Link

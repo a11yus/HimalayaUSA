@@ -12,6 +12,13 @@ import { auth } from "../firebase";
 import BillingPage from "./BillingPage";
 import About from "./About/About";
 
+import ProductPage from "./Products/ProductPage";
+import CartPage from "./Products/CartPage";
+import StoreLocator from "./StoreLocator";
+
+
+
+
 const AllRoutes = () => {
   // const dispatch = useDispatch();
   // useEffect(()=>{
@@ -20,32 +27,35 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Mainpage />}></Route>
-      <Route path="/registration" element={<Registration />}></Route>
+      <Route path="/productPage" element={<ProductPage />}></Route>
+      <Route path="/cartPage" element={<CartPage />}></Route>
+      <Route path="/registration" element={<Registration />}></Route> 
       <Route path="/login" element={<Login />}></Route>
       <Route path="/about" element={<About />}></Route>
+      <Route path="/storelocator" element={<StoreLocator/>}></Route>
       <Route path="/billing" element={<BillingPage />}></Route>
       <Route
         path="/checkout"
         element={
-          <UserRoute>
+          // <UserRoute>
             <InformationPage />
-          </UserRoute>
+          // </UserRoute>
         }
       ></Route>
       <Route
         path="/shipping"
         element={
-          <UserRoute>
+          // <UserRoute>
             <ShippingPage />
-          </UserRoute>
+          // </UserRoute>
         }
       ></Route>
       <Route
         path="/payment"
         element={
-          <UserRoute>
+          // <UserRoute>
             <PaymentPage />
-          </UserRoute>
+          // </UserRoute>
         }
       ></Route>
     </Routes>

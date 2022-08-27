@@ -1,6 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "./BillingStyle.module.css";
+import gif from "../image/gift-box.gif";
 
 const BillingPage = () => {
   var seq = (Math.floor(Math.random() * 10000000000000) + 1000000000000)
@@ -15,12 +16,20 @@ const BillingPage = () => {
 
   const [check, setCheck] = useState(dt.toString());
   console.log(check);
-  //  const d = new Date();
-  //  document.getElementById("demo").innerHTML = d.toString();
+
+
+  const [animation,setAnimation] =useState(true);
+  setTimeout(() => {
+    setAnimation(false);
+    
+  }, 4000);
+
 
   return (
     <div className={style.BillingContainer}>
-      <div className={style.BillingContainerLeft}>
+      {/* <img alt="gif" src={gif} style={{height:"500px"}}/> */}
+     {animation ?    <img alt="gif" src={gif} style={{height:"500px"}}/>:   <>
+     <div className={style.BillingContainerLeft}>
         <div className={style.successfulDiv}>
           <img
             src="https://tse1.mm.bing.net/th?id=OIP.c0fNDjlEjTOz22FQl4cfLwAAAA&pid=Api&P=0"
@@ -84,6 +93,8 @@ const BillingPage = () => {
           a few minutes.
         </p>
       </div>
+      </>}
+  
     </div>
   );
 };
