@@ -41,8 +41,8 @@ Do check our website -
 
 
 ## Authors
- - [a11yush]
-- [Jitendra Kumar]
+ - [a11yush](https://github.com/a11yush)
+- [Jitendra Kumar](https://github.com/sharmacs88)
 - [Ayushi Gupta](https://github.com/Ayushi0516)
-- [Ashwini Bhoskar]
+- [beashu77](https://github.com/beashu77)
 - [SomaShekar]
