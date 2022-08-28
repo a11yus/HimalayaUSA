@@ -42,7 +42,7 @@ Do check our website -
 
 ## Authors
  - [Ayush Kumar](https://github.com/a11yush)
-- [Jitendra Kumar](https://github.com/sharmacs88)
+- [Jitendra Sharma](https://github.com/Sharmacs8853)
 - [Ayushi Gupta](https://github.com/Ayushi0516)
 - [Ashwini Bhoskar](https://github.com/beashu77)
 - [SomaShekar](https://github.com/Somashekar9999)
