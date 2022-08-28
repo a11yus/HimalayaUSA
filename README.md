@@ -21,3 +21,7 @@ Here you can have a Look on our site himalyausa.com
 ![Screenshot (1439)](https://user-images.githubusercontent.com/101566272/187064948-88b32648-589a-4971-9aa0-4a40db238ca8.png)
 
 ![Screenshot (1441)](https://user-images.githubusercontent.com/101566272/187064957-6ee039e7-706d-4b0c-9006-10e0745d5b37.png)
+
+
+## 🛠 Skills
+HTML ,Css,JavaScript, ReactJs, Redux,Chakra-UI
