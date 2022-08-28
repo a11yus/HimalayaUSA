@@ -7,8 +7,8 @@ Himalaya Wellness Company (formerly Himalaya Drug Company) is an Indian multinat
 
 ## Demo
 
-Here you can have a Look on our site himalyausa.com
-().
+Here you can have a Look on our site himalyausa.com :
+https://github.com/a11yus/proud-tin-7411
 
 
 ## some snippets from our work
@@ -35,4 +35,7 @@ HTML ,Css,JavaScript, ReactJs, Redux,Chakra-UI
 - Optimized for Search and the Social Web
 - Functional
 - Performance and Speed
+
+## Deployment
+Do check our website -
 
