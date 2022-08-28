@@ -41,8 +41,14 @@ Do check our website -
 
 
 ## Authors
- - [Ayushh Kumar](https://github.com/a11yush)
+ - [Ayush Kumar](https://github.com/a11yush)
 - [Jitendra Kumar](https://github.com/sharmacs88)
 - [Ayushi Gupta](https://github.com/Ayushi0516)
 - [Ashwini Bhoskar](https://github.com/beashu77)
 - [SomaShekar](https://github.com/Somashekar9999)
+
+# For Developers
+ - clone the repository 
+ - install node modules
+ - Install the dependencies 
+ - npm start
