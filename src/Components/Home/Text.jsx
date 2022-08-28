@@ -1,6 +1,7 @@
 import styles from "./Text.module.css";
 import {Link} from 'react-router-dom';
 
+
 const text=[
     {
         img:"https://cdn.shopify.com/s/files/1/0399/1728/9633/files/HUSA-Ashwagandha-90ct-Carton_Bottle-square_1024x.png?v=1607451904",
@@ -32,7 +33,7 @@ const Text=()=>{
             {text.map((item)=>(
                 <div className={styles.cat}>
                 <img src={item.img} width="380px"/>
-              <a><h2 className={styles.black}>{item.head}</h2></a>
+              <h2 className={styles.black}><Link to="/ProductPage">{item.head}</Link></h2>
                <p className={styles.see}>{item.des}</p>
                 </div>
             ))}

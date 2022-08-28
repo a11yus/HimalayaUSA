@@ -90,16 +90,18 @@
    
     border:1px solid #eaeaea;
     height: 200px;
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
 }
 .fav{
     font-size: 16px;
     color: #333333;
     padding-top: 50px;
+   padding-left: 20px;
 }
 .sub_heading{
     font-size: 15px;
     color:#ababab ;
     margin-top: 12px;
+    padding-left: 20px;
 }
