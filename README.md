@@ -25,3 +25,14 @@ Here you can have a Look on our site himalyausa.com
 
 ## 🛠 Skills
 HTML ,Css,JavaScript, ReactJs, Redux,Chakra-UI
+
+
+## Features
+
+- Easy to Use
+- Fresh, Quality Products
+- Well Designed and Functional
+- Optimized for Search and the Social Web
+- Functional
+- Performance and Speed
+
