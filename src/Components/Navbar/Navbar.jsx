@@ -293,7 +293,8 @@ const Navbar = () => {
                     </Flex>
                   </Box>
                
-                  <Link to="/cartPage"><Button colorScheme={'green'} width={'100%'}>CheckOut</Button></Link>
+                  <Link to="/checkout"><Button colorScheme={'green'} width={'100%'}>CheckOut</Button></Link><br/><br/>
+                  <Link to="/cartPage"><Button colorScheme={'gray'} width={'100%'}>View Cart</Button></Link>
                 </Box>
               </MenuList>
               {/*=========== cart div end=========== */}

@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
-import { auth } from "../../firebase";
+import { auth, googleAuthProvider } from "../../firebase";
+
 
 const signupRequest = () => {
   return {
@@ -59,6 +60,27 @@ export const setUser = (user)=>({
   payload:user,
 })
 
+
+const googleSigninRequest = () => {
+  return {
+    type: types.GOOGLE_SIGNIN_REQUEST,
+  };
+};
+const googleSigninSuccess = (user) => {
+  return {
+    type: types.GOOGLE_SIGNIN_SUCCESS,
+    payload: user,
+  };
+};
+const googleSigninFailure = (error) => {
+  return {
+    type: types.GOOGLE_SIGNIN_FAILURE,
+    payload: error,
+  };
+};
+
+
+
 export const signupInit = (email, password, displayName) => {
   return function (dispatch) {
     dispatch(signupRequest());
@@ -101,5 +123,21 @@ export const logoutInit = () => {
       .signOut()
       .then((res) => dispatch(logoutSuccess()))
       .catch((error) => dispatch(logoutFailure(error.massage)));
+  };
+};
+
+
+
+export const googleSigninInit = () => {
+  return function (dispatch) {
+    dispatch(googleSigninRequest());
+    auth
+      .signInWithPopup(googleAuthProvider)
+      .then(({ user }) => {
+        dispatch(googleSigninSuccess(user));
+      })
+      .catch((error) => {
+        dispatch(googleSigninFailure(error.massage))
+      });
   };
 };
