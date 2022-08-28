@@ -39,3 +39,11 @@ HTML ,Css,JavaScript, ReactJs, Redux,Chakra-UI
 ## Deployment
 Do check our website -
 
+
+## Authors
+
+- [Jitendra Kumar]
+- [Ayushi Gupta](https://github.com/Ayushi0516)
+- [Ashwini Bhoskar]
+ - [Ayush Kumar]
+- [SomaShekar]
