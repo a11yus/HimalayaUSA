@@ -15,15 +15,22 @@ import About from "./About/About";
 import ProductPage from "./Products/ProductPage";
 import CartPage from "./Products/CartPage";
 import StoreLocator from "./StoreLocator";
+import { setUser } from "../Redux/Authreducer/action";
 
 
 
 
 const AllRoutes = () => {
-  // const dispatch = useDispatch();
-  // useEffect(()=>{
-  //   auth.onAuthStateChanged((authUser))
-  // },[])
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    auth.onAuthStateChanged((authUser)=>{
+      if(authUser){
+        dispatch(setUser(authUser))
+      }else{
+        dispatch(setUser(null))
+      }
+    })
+  },[])
   return (
     <Routes>
       <Route path="/" element={<Mainpage />}></Route>
