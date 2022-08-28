@@ -52,3 +52,6 @@ Do check our website -
  - install node modules
  - Install the dependencies 
  - npm start
+
+## 🚀 About us 
+We are students at masai school (https://www.masaischool.com/) full stack web developer. We are team of 5 people. This was the project given to us on completion of unit 5. till unit 5 we have learned HTML, CSS,JavaScript,ReactJs,Redux and chakraUI. So we tried to apply our learning to make this project in 6 days.  
