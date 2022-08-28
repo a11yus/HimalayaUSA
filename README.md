@@ -13,4 +13,10 @@ Here you can have a Look on our site himalyausa.com
 
 ## some snippets from our work
 
+![Screenshot (1438)](https://user-images.githubusercontent.com/101566272/187064927-a4e19675-51c3-4e5b-a57a-dcce2351d290.png)
 
+![Screenshot (1440)](https://user-images.githubusercontent.com/101566272/187064937-05993e55-d095-411d-ba72-714cdfc01997.png)
+
+![Screenshot (1439)](https://user-images.githubusercontent.com/101566272/187064948-88b32648-589a-4971-9aa0-4a40db238ca8.png)
+
+![Screenshot (1441)](https://user-images.githubusercontent.com/101566272/187064957-6ee039e7-706d-4b0c-9006-10e0745d5b37.png)
